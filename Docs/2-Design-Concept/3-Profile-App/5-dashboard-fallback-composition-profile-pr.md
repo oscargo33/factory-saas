@@ -17,12 +17,20 @@ Definir UX funcional del dashboard de Profile como agregador no-dueno de datos, 
 El dashboard consulta contratos publicos de otras apps y renderiza secciones si estan disponibles.
 
 Fuentes:
+- Product-Orchestrator: productos comprados/activos del tenant.
+- Marketing: cupones y descuentos vigentes.
 - Orders: recientes y estado.
+- Payment: pagos recientes, estado y metodos asociados.
 - Support: tickets abiertos y SLA.
 - Theme: tokens y componentes visuales.
 
 Regla:
-- Si la dependencia no esta instalada/no responde, la seccion se omite y retorna `[]`.
+- Si Product-Orchestrator no esta/no responde: `products=[]`.
+- Si Marketing no esta/no responde: `coupons=[]`, `discounts=[]`.
+- Si Orders no esta/no responde: `orders=[]`.
+- Si Payment no esta/no responde: `payments=[]`.
+- Si Support no esta/no responde: `tickets=[]`.
+- Si Theme no esta/no saludable: `theme_tokens=DEFAULT_THEME_TOKENS` y layout fallback.
 
 ---
 

@@ -17,6 +17,7 @@ Alcance obligatorio del paquete:
 - Gestionar preferencias por tenant (`Profile`) en esquema tenant.
 - Exponer contratos de contexto para apps consumidoras y Product Core.
 - Mantener fallback UI cuando Theme no este instalado/no saludable.
+- Componer dashboard con datos de Product-Orchestrator, Marketing, Orders, Payment y Support.
 
 ---
 

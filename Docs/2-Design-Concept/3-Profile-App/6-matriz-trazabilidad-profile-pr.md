@@ -23,11 +23,15 @@ Asegurar trazabilidad entre requerimientos de identidad/tenancy y artefactos de 
 | PR-R05 | Fallback sin Theme | `5-dashboard-fallback-composition-profile-pr.md` | `dashboard_basic.html` |
 | PR-R06 | Seguridad RBAC | `4-views-endpoints-middleware-profile-pr.md` | Restriccion owner/admin en acciones sensibles |
 | PR-R07 | Aislamiento de tenant | `4-views-endpoints-middleware-profile-pr.md` | Integracion con tenant middleware/router |
+| PR-R08 | Dashboard muestra productos comprados | `5-dashboard-fallback-composition-profile-pr.md` | Seccion `products` con fallback `[]` |
+| PR-R09 | Dashboard muestra cupones y descuentos | `5-dashboard-fallback-composition-profile-pr.md` | Seccion `coupons/discounts` con fallback `[]` |
+| PR-R10 | Dashboard muestra pagos realizados | `5-dashboard-fallback-composition-profile-pr.md` | Seccion `payments` con fallback `[]` |
+| PR-R11 | Dashboard aplica color themes | `3-service-selector-contratos-profile-pr.md` | `theme_tokens` o `DEFAULT_THEME_TOKENS` |
 
 ---
 
 ## 3. Criterios de aceptacion
 
-- [ ] PR-R01..PR-R07 trazados a artefactos concretos.
+- [ ] PR-R01..PR-R11 trazados a artefactos concretos.
 - [ ] Evidencia de cada requerimiento definida para Sprint Review.
 - [ ] Sin huecos entre Core y Design.

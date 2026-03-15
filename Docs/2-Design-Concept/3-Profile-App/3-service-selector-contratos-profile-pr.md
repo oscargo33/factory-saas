@@ -34,7 +34,7 @@ Reglas:
 | `get_active_context` | `(request) -> dict` | `{user, tenant, membership}` |
 | `get_profile_for_user` | `(user_id: int, tenant_id: UUID) -> dict | None` | Perfil resumido |
 | `get_user_tenants` | `(user_id: int) -> list[dict]` | Tenants accesibles |
-| `get_dashboard_composition` | `(user_id: int, tenant_id: UUID) -> dict` | Secciones agregadas (orders/support) |
+| `get_dashboard_composition` | `(user_id: int, tenant_id: UUID) -> dict` | Secciones agregadas (`products`, `coupons`, `orders`, `payments`, `tickets`, `theme_tokens`) |
 
 ---
 
@@ -47,11 +47,15 @@ Version inicial: `profile.contract.v1`
 | `profile.active_context.v1` | Selector | `{request}` | `{user, tenant, membership}` |
 | `profile.display_name.v1` | Selector | `{user_id, tenant_id}` | `{display_name}` |
 | `profile.switch_tenant.v1` | Service | `{user_id, tenant_id}` | `{redirect_url, tenant_slug}` |
-| `profile.dashboard.v1` | Selector | `{user_id, tenant_id}` | `{orders, tickets, ...}` |
+| `profile.dashboard.v1` | Selector | `{user_id, tenant_id}` | `{products, coupons, orders, payments, tickets, theme_tokens}` |
 
 Fallbacks:
+- Sin Product-Orchestrator: `products=[]`.
+- Sin Marketing: `coupons=[]` y `discounts=[]`.
 - Sin Orders: `orders=[]`.
+- Sin Payment: `payments=[]`.
 - Sin Support: `tickets=[]`.
+- Sin Theme o no saludable: `theme_tokens=DEFAULT_THEME_TOKENS`.
 - Sin Telemetry: evento no emitido, operacion principal continua.
 
 ---

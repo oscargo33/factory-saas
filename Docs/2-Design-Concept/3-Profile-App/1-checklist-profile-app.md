@@ -40,6 +40,10 @@
 - [x] Dashboard por composicion de soft-dependencies.
 - [x] Fallback visual en ausencia/no salud de Theme.
 - [x] Fallback de secciones no disponibles (`[]`).
+- [x] Composicion con Product-Orchestrator para productos comprados.
+- [x] Composicion con Marketing para cupones y descuentos.
+- [x] Composicion con Payment para pagos realizados.
+- [x] Composicion con Theme para color themes cuando este disponible.
 
 ### E. Trazabilidad
 

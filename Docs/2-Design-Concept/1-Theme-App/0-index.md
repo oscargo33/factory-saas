@@ -30,6 +30,9 @@ Alcance obligatorio del paquete:
 | 3 | `3-service-selector-contratos-theme-th.md` | TH-3-SVC | Service/Selector y contratos inter-app |
 | 4 | `4-views-endpoints-middleware-theme-th.md` | TH-4-API | Middleware, context processor y endpoints internos |
 | 5 | `5-componentes-cotton-pipeline-theme-th.md` | TH-5-UI | Sistema visual: Cotton, Tailwind y Alpine |
+| 6 | `6-matriz-trazabilidad-theme-th.md` | TH-6-TRA | Trazabilidad Core -> Design -> Evidencia |
+| 7 | `7-nfr-seguridad-operacion-theme-th.md` | TH-7-NFR | Requerimientos no funcionales, seguridad y operación |
+| 8 | `8-plan-validacion-diseno-theme-th.md` | TH-8-VAL | Plan de validación del diseño y evidencia de cierre |
 
 ---
 
@@ -39,6 +42,14 @@ Alcance obligatorio del paquete:
 - Exponer integración inter-app solo por contratos públicos de selector/service.
 - Tener fallback neutral para consumidores cuando Theme no esté instalado.
 - Mantener compatibilidad con el diseño global DC-12, DC-14 y DC-16.
+
+Patron de paquete completo obligatorio por app:
+- Modelo de datos.
+- Service/Selector/Contratos.
+- Endpoints/Middleware/UI segun corresponda.
+- Matriz de trazabilidad.
+- NFR + seguridad + operación.
+- Plan de validación del diseño.
 
 ---
 

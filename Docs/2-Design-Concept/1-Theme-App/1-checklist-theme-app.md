@@ -55,11 +55,29 @@
 - [x] Idioma base definido: español (`es`) y no se traduce.
 - [x] Matriz inicial definida: 6 idiomas totales (`es` + `en`, `it`, `fr`, `de`, `pt`).
 
+### G. Trazabilidad
+
+- [x] Matriz de trazabilidad Core -> Design -> Evidencia creada.
+- [x] Requerimientos funcionales principales mapeados a artefactos.
+
+### H. NFR y operación
+
+- [x] NFR de rendimiento definidos.
+- [x] NFR de disponibilidad/degradación definidos.
+- [x] Controles de seguridad y operación definidos.
+
+### I. Validación del diseño
+
+- [x] Plan de validación del diseño definido.
+- [x] Escenarios de evidencia para Sprint Review definidos.
+
 ---
 
 ## Criterio de Cierre (Diseño App 1)
 
 - [ ] Todos los documentos TH-2 a TH-5 aprobados por revisión arquitectónica.
+- [ ] Documentos TH-6 y TH-7 aprobados por revisión arquitectónica.
+- [ ] Documento TH-8 aprobado por revisión arquitectónica.
 - [ ] Trazabilidad completa a Core Concept y a DC globales.
 - [ ] Lista de interfaces públicas estable y versionada.
 - [ ] Matriz de idiomas inicial (6) validada por negocio y producto.

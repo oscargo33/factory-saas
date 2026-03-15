@@ -29,6 +29,9 @@ Alcance obligatorio del paquete:
 | 3 | `3-service-selector-contratos-telemetry-at.md` | AT-3-SVC | Service/Selector y contratos inter-app |
 | 4 | `4-endpoints-middleware-telemetry-at.md` | AT-4-API | Endpoints DRF, middleware de trazabilidad y seguridad |
 | 5 | `5-push-pull-resiliencia-telemetry-at.md` | AT-5-OPS | Flujos Push/Pull, retries, buffering y observabilidad |
+| 6 | `6-matriz-trazabilidad-telemetry-at.md` | AT-6-TRA | Trazabilidad Core -> Design -> Evidencia |
+| 7 | `7-nfr-seguridad-operacion-telemetry-at.md` | AT-7-NFR | NFR, seguridad y operación de telemetría |
+| 8 | `8-plan-validacion-diseno-telemetry-at.md` | AT-8-VAL | Plan de validación de diseño y evidencia |
 
 ---
 
@@ -38,6 +41,14 @@ Alcance obligatorio del paquete:
 - Exponer integracion inter-app solo por contratos publicos de selector/service.
 - Mantener `TELEMETRY_ENABLED` como feature-flag transversal de desactivacion segura.
 - Alinear seguridad y compliance con DC-15 y DC-18.
+
+Patron de paquete completo obligatorio por app:
+- Modelo de datos.
+- Service/Selector/Contratos.
+- Endpoints/Middleware/UI segun corresponda.
+- Matriz de trazabilidad.
+- NFR + seguridad + operación.
+- Plan de validación del diseño.
 
 ---
 

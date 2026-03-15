@@ -47,10 +47,28 @@
 - [x] Rotacion/TTL de JWT saliente.
 - [x] Retencion y purga de metricas.
 
+### F. Trazabilidad
+
+- [x] Matriz de trazabilidad Core -> Design -> Evidencia creada.
+- [x] Requerimientos funcionales principales mapeados a artefactos.
+
+### G. NFR y operación
+
+- [x] NFR de latencia y entrega definidos.
+- [x] NFR de disponibilidad/fail-soft definidos.
+- [x] Controles operativos y alertas definidos.
+
+### H. Validación del diseño
+
+- [x] Plan de validación del diseño definido.
+- [x] Escenarios de evidencia para Sprint Review definidos.
+
 ---
 
 ## Criterio de Cierre (Diseno App 2)
 
 - [ ] Todos los documentos AT-2 a AT-5 aprobados por revision arquitectonica.
+- [ ] Documentos AT-6 y AT-7 aprobados por revision arquitectonica.
+- [ ] Documento AT-8 aprobado por revision arquitectonica.
 - [ ] Trazabilidad completa a DC-11, DC-15, DC-18.
 - [ ] Contratos publicos versionados y publicados en DC-16.

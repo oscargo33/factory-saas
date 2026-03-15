@@ -1,61 +1,105 @@
 
-# Índice Operativo de Implementación (0-Factory-SaaS)
+# Índice de Documentos de Diseño Global — Factory-SaaS
 
-**Ubicación:** `./docs/1-Design-Concept/0-Factory-SaaS/00-indice-operativo-fs.md`
-
-**Referencia:** Jerarquía de Capas + Gestión de Entorno
-
+**ID:** DC-0-INDEX
+**Ubicación:** `./Docs/2-Design-Concept/0-Factory-Saas/0-index.md`
+**Referencia Core:** `0-factory_saas-cc.md`
+**Versión:** 2.0 — Fase 1 Global Design completada
 **Apellido de Trazabilidad:** **-fs**
-
-## Capa 0: Gestión y Dependencias (El Contenedor del Proyecto)
-
-*Antes de Docker, está el código y sus librerías.*
-
-* `configuracion-poetry-fs.md`: Definición de `pyproject.toml`, grupos de dependencias (dev, prod, test) y gestión de versiones de Python.
-* `estructura-de-carpetas-raiz-fs.md`: Organización del repositorio (donde va el código, los documentos, los estáticos y los scripts de gestión).
-* `scripts-de-automatizacion-fs.md`: Comandos personalizados (Makefiles o scripts de Python) para levantar el entorno con un solo comando.
-
-## Capa 1: Entorno de Ejecución (Contenerización)
-
-* `dockerfile-maestro-fs.md`: Especificación de la imagen base (Debian/Alpine), capas de optimización y usuario no-root para seguridad.
-* `docker-compose-orquestacion-fs.md`: Definición de los servicios, redes internas y política de reinicio.
-* `variables-de-entorno-fs.md`: Especificación del archivo `.env.example` y la jerarquía de carga de secretos.
-
-## Capa 2: Persistencia y Almacenamiento
-
-* `configuracion-postgresql-fs.md`: Extensiones (`pgvector`), límites de conexión y *tuning* del motor.
-* `estrategia-de-volumenes-fs.md`: Mapeo de carpetas locales vs contenedores para base de datos y archivos media.
-
-## Capa 3: Orquestación y Entrada (Redes)
-
-* `gateway-nginx-fs.md`: Configuración de bloques de servidor para subdominios dinámicos y certificados SSL.
-* `configuracion-redis-fs.md`: Uso de Redis como caché y como broker para Celery.
-
-## Capa 4: Arquitectura de Software (Servicios)
-
-* `patron-service-layer-fs.md`: Guía de implementación de los archivos `services.py` y `selectors.py` en cada app.
-* `gestion-de-señales-y-eventos-fs.md`: Cómo las apps se comunican de forma asíncrona mediante señales de Django o eventos de Redis.
-
-## Capa 5: Motor de Multitenencia
-
-* `middleware-deteccion-tenant-fs.md`: Lógica para capturar el subdominio y validar el inquilino.
-* `router-dinamico-esquemas-fs.md`: El código que inyecta el `search_path` de PostgreSQL en cada petición.
-* `bootstrap-de-nuevo-tenant-fs.md`: El proceso automatizado de crear el esquema y correr migraciones al registrar una nueva empresa.
-
-## Capa 6: Base Visual y Frontend
-
-* `pipeline-tailwind-cotton-fs.md`: Cómo se compilan los estilos y cómo se registran los componentes de la App 1.
-* `estandar-de-reactividad-alpine-fs.md`: Reglas de uso de Alpine.js para mantener el frontend ligero pero potente.
-
-## Capa 7: Lógica de Fábrica (Operatividad)
-
-* `monitoreo-y-telemetria-local-fs.md`: Cómo la App 2 recolecta datos antes de mandarlos a La Central.
-* `flujo-de-onboarding-global-fs.md`: El paso a paso desde que la Home crea un prospecto hasta que Profiles habilita el Dashboard.
 
 ---
 
-### ¿Cómo usar este índice?
+Este índice lista todos los documentos de diseño de la infraestructura global de la Factory. Deben completarse en su totalidad antes de iniciar el diseño individual de cada app.
 
-Este índice es tu **Checklist de Construcción**. Cada vez que la IA o tú terminen un archivo de configuración (como el `pyproject.toml`), marcas este índice.
+---
 
-**¿Te parece si empezamos por la Capa 0 con el documento `configuracion-poetry-fs.md` para definir exactamente qué librerías y qué versión de Python usará el motor de la Factory?**
+## Capa 0: Gestión y Dependencias
+
+| # | Documento | ID | Estado |
+|---|---|---|---|
+| — | `1-checklist-factory-saas.md` | DC-1-FS | ✅ Activo (tracking) |
+| — | `2-Core Automation-specs-fs.md` | DC-2-FS | ✅ Aprobado |
+| — | `3-gestion-de-secretos-fs.md` | DC-3-FS | ✅ Aprobado |
+| — | `4-estructura-de-carpetas-fs.md` | DC-4-FS | ✅ Aprobado |
+| — | `5-configuracion-poetry-fs.md` | DC-5-FS | ✅ Aprobado |
+
+## Capa 1: Entorno de Ejecución (Contenerización)
+
+| # | Documento | ID | Estado |
+|---|---|---|---|
+| — | `6-dockerfile-maestro-fs.md` | DC-6-FS | ✅ Aprobado |
+| — | `7-docker-compose-specs-fs.md` | DC-7-FS | ✅ Aprobado |
+| — | `8-entrypoint-specs-fs.md` | DC-8-FS | ✅ Aprobado |
+
+## Capa 2: Persistencia y Almacenamiento
+
+| # | Documento | ID | Estado |
+|---|---|---|---|
+| — | `9-configuracion-postgresql-fs.md` | DC-9-FS | ✅ Aprobado |
+
+## Capa 3: Orquestación y Entrada (Redes + Mensajería)
+
+| # | Documento | ID | Estado |
+|---|---|---|---|
+| — | `10-gateway-nginx-fs.md` | DC-10-FS | ✅ Aprobado |
+| — | `11-configuracion-redis-celery-fs.md` | DC-11-FS | ✅ Aprobado |
+
+## Capa 4: Arquitectura de Software (Service Layer)
+
+| # | Documento | ID | Estado |
+|---|---|---|---|
+| — | `12-patron-service-layer-fs.md` | DC-12-FS | ✅ Aprobado |
+
+## Capa 5: Motor de Multi-Tenancy
+
+| # | Documento | ID | Estado |
+|---|---|---|---|
+| — | `13-router-dinamico-esquemas-fs.md` | DC-13-FS | ✅ Aprobado |
+
+## Capa 6: Base Visual y Frontend
+
+| # | Documento | ID | Estado |
+|---|---|---|---|
+| — | `14-pipeline-tailwind-cotton-fs.md` | DC-14-FS | ✅ Aprobado |
+
+## Capa 7: Telemetría y Control de La Central
+
+| # | Documento | ID | Estado |
+|---|---|---|---|
+| — | `15-protocolo-comunicacion-central-fs.md` | DC-15-FS | ✅ Aprobado |
+
+## Transversal: Contratos, Datos y Seguridad
+
+| # | Documento | ID | Estado |
+|---|---|---|---|
+| — | `16-contratos-inter-app-fs.md` | DC-16-FS | ✅ Aprobado |
+| — | `17-diccionario-datos-logico-fs.md` | DC-17-FS | ✅ Aprobado |
+| — | `18-matriz-seguridad-compliance-fs.md` | DC-18-FS | ✅ Aprobado |
+
+---
+
+## Estado de la Fase 1 — Diseño Global
+
+**Total documentos:** 18 (+ este índice = 19 archivos)
+**Completos:** 18 / 18
+**Estado:** ✅ FASE 1 DISEÑO GLOBAL CERRADA
+
+---
+
+## Siguiente Paso
+
+Con el diseño global completado, el siguiente paso es el **diseño individual de cada app** (Fase 1 — App Design). Cada app tendrá su propia carpeta en `Docs/2-Design-Concept/` referenciando los documentos de esta base:
+
+```
+Docs/2-Design-Concept/
+├── 0-Factory-Saas/      ← Diseño global (este directorio, CERRADO)
+├── 1-Theme-App/         ← Siguiente a diseñar
+├── 2-API-App/
+├── 3-Profile-App/
+├── 4-ProductOrchestrator-App/
+├── 5-Marketing-App/
+├── 6-Orders-App/
+├── 7-Payment-App/
+├── 8-Support-App/
+└── 9-Home-App/
+```

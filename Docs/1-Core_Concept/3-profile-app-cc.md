@@ -8,7 +8,7 @@ Este es el **Documento Maestro 3: App Profiles (Gestión de Identidad y Tenancy)
 
 * **Nivel de Profundidad:** 3 (Capa de Contexto).
 * **Rol:** Gestor de cuentas de usuario, perfiles y el motor de multitenencia (esquemas).
-* **Dependencias Suaves:** Apps 1 (Theme) y 2 (Telemetry). Consume datos (lectura) de Apps 4-8 para el Dashboard.
+* **Dependencias Suaves:** Apps 1 (Theme) y 2 (Telemetry). Consume datos (lectura) de Apps 4, 5, 6, 7 y 8 para el Dashboard.
 
 ## 2. Estructura de Archivos (Arquitectura de Carpetas)
 
@@ -42,8 +42,12 @@ Para permitir que un usuario pertenezca a varios SaaS con una sola cuenta:
 
 El Dashboard de perfiles no es "dueño" de los datos, los solicita mediante **Soft-Dependencies**:
 
+* Si la **App 4 (Product Orchestrator)** está instalada, invoca a `ProductSelector.get_purchased_products(user, tenant)`.
+* Si la **App 5 (Marketing)** está instalada, invoca a `MarketingSelector.get_available_coupons(user, tenant)`.
 * Si la **App 6 (Orders)** está instalada, invoca a `OrdersSelector.get_recent(user)`.
+* Si la **App 7 (Payment)** está instalada, invoca a `PaymentSelector.get_recent_payments(user, tenant)`.
 * Si la **App 8 (Support)** está instalada, invoca a `SupportSelector.get_active_tickets(user)`.
+* Si la **App 1 (Theme)** está instalada y saludable, aplica tokens visuales y componentes; si no, usa fallback visual local.
 * **Resiliencia:** Si alguna app falta, la sección correspondiente en el dashboard simplemente no se renderiza (devuelve una lista vacía `[]`).
 
 ## 5. Implementación UI con Cotton y Alpine.js
@@ -64,7 +68,7 @@ Cuando pidas a la IA generar esta aplicación, usa este prompt:
 > "Genera el código para la App **Profiles** de una Factory SaaS.
 > 1. Implementa un sistema de **Multitenancy** donde los usuarios vivan en el esquema público y puedan pertenecer a múltiples Tenants (esquemas).
 > 2. En `services.py`, crea la lógica para invitar usuarios y validar roles (RBAC).
-> 3. El Dashboard debe ser un agregador: usa `apps.is_installed` para intentar cargar datos de 'Orders' y 'Support'. Si no están, devuelve listas vacías.
+> 3. El Dashboard debe ser un agregador: usa `apps.is_installed` para intentar cargar datos de 'Product Orchestrator', 'Marketing', 'Orders', 'Payment' y 'Support'. Si no están, devuelve listas vacías.
 > 4. Crea componentes **Django Cotton** para el avatar y el selector de tenant, usando **Alpine.js** para la interactividad.
 > 5. Provee un `fallback_layout.html` en `templates/profiles/fallback/` con HTML puro para que el login nunca falle."
 > 
@@ -87,9 +91,12 @@ La App Profiles es el "corazón operativo". Puede funcionar perfectamente solo c
 ### Interacciones con otras apps
 - **Provee a:** App 4 (Orchestrator) — contexto de quién solicita acceso; App 8 (Support) — historial del usuario; App 9 (Home) — rutas de redirección post-login.
 - **Consume de (soft-dependency):**
-  - App 1 (Theme): estilos. Fallback: `templates/profiles/fallback/dashboard_basic.html`.
+  - App 1 (Theme): estilos y color themes. Fallback: `templates/profiles/fallback/dashboard_basic.html`.
   - App 2 (Telemetry): reporta creación de perfil. Fallback: perfil se crea igualmente, sin reporte.
+  - App 4 (Product Orchestrator): productos comprados/activos para dashboard. Fallback: sección no se renderiza (`[]`).
+  - App 5 (Marketing): cupones y descuentos disponibles. Fallback: sección no se renderiza (`[]`).
   - App 6 (Orders): historial de pedidos para dashboard. Fallback: sección no se renderiza (`[]`).
+  - App 7 (Payment): historial de pagos realizados. Fallback: sección no se renderiza (`[]`).
   - App 8 (Support): tickets activos para dashboard. Fallback: sección no se renderiza (`[]`).
 
 ### Entidades de negocio propias

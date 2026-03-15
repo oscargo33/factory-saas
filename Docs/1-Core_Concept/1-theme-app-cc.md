@@ -3,7 +3,7 @@
 ## 1. Identidad de la Aplicación
 
 * **Nivel de Profundidad:** 1 (Base absoluta).
-* **Rol:** Proveedor de Estética (Tailwind), Componentes (Cotton), Reactividad (Alpine.js) e Idioma (i18n).
+* **Rol:** Proveedor de Estética (Tailwind), Componentes (Cotton), Reactividad (Alpine.js) e Idioma (i18n) para todas las apps y Product Core.
 * **Dependencias:** Ninguna. Es el "donante" de recursos para las demás.
 
 ## 2. Estructura de Archivos (Arquitectura de Carpetas)
@@ -93,7 +93,15 @@ El `services.py` debe manejar el caché para no saturar PostgreSQL.
 * **Método `translate(key, lang)`:**
 1. Busca en Redis.
 2. Si no está, busca en `Glossary` (PostgreSQL).
-3. Si no está, llama a la API de **LibreTranslate** (Sidecar), guarda en DB y Redis, y devuelve el resultado.
+3. Si no está, usa capacidades de traducción de Django (`LocaleMiddleware`, `translation.activate`, `gettext`) para resolver idioma y cadena base.
+4. Si aún no está, llama a la API de **LibreTranslate** (Sidecar), guarda en DB y Redis, y devuelve el resultado.
+
+### Política de Idiomas
+
+- **Idioma base obligatorio:** español (`es`).
+- **Matriz inicial:** 6 idiomas totales.
+- **Traducción activa:** inglés (`en`), italiano (`it`), francés (`fr`), alemán (`de`), portugués (`pt`).
+- **Regla:** `es` es el idioma base y no se traduce.
 
 
 
@@ -106,8 +114,9 @@ Cuando estés listo para programar esta app, copia este prompt:
 > 2. Implementa un modelo `Glossary` con un campo **JSONB** para traducciones.
 > 3. Crea un `middleware` que inyecte variables CSS en el context.
 > 4. Usa **Alpine.js** para la reactividad de los componentes.
-> 5. Configura un sistema de traducción en `services.py` que use **Redis** como caché y **LibreTranslate** como fallback asíncrono.
-> 6. El layout base debe ser altamente extensible mediante bloques de Django."
+> 5. Configura un sistema de traducción en `services.py` que use capacidades nativas de traducción de Django, **Redis** como caché y **LibreTranslate** como fallback asíncrono.
+> 6. La matriz inicial es de 6 idiomas totales: `es` como base (no traducible) y traducción activa para `en`, `it`, `fr`, `de`, `pt`.
+> 7. El layout base debe ser altamente extensible mediante bloques de Django."
 > 
 > 
 
@@ -115,7 +124,10 @@ Cuando estés listo para programar esta app, copia este prompt:
 
 ### Verificación de Autonomía
 
-La App Theme es la única que **no tiene fallback**, porque ella **es el origen del estilo**. Si ella falla, las Apps 3-9 activarán sus propios `fallback_layout.html`.
+La App Theme es la única que **no tiene fallback**, porque ella **es el origen del estilo**. Si ella falla, todas las apps consumidoras y Product Core activarán sus propios `fallback_layout.html`.
+
+Cobertura obligatoria de degradación:
+- Si Theme no está instalada o no está saludable, todas las apps consumidoras y Product Core deben seguir operando con su `fallback_layout.html` y traducción neutral (texto base/clave).
 
 ---
 
@@ -126,9 +138,9 @@ La App Theme es la única que **no tiene fallback**, porque ella **es el origen 
 - **No Scope:** Cobros, órdenes, entitlements, lógica de negocio transaccional.
 
 ### Interacciones con otras apps
-- **Provee a:** todas las apps (2-9) — estilos, componentes Cotton y traducciones.
+- **Provee a:** todas las apps (2-9) y Product Core — estilos, componentes Cotton y traducciones.
 - **Consume de:** ninguna app. Theme es el donante de recursos base; no tiene dependencias suaves.
-- **Fallback propio:** Theme no tiene fallback porque es el origen del estilo. Si falla, las Apps 3-9 activan sus propios `fallback_layout.html`.
+- **Fallback propio:** Theme no tiene fallback porque es el origen del estilo. Si falla/no está saludable, las apps consumidoras y Product Core activan su `fallback_layout.html`.
 
 ### Entidades de negocio propias
 | Entidad | Descripción |
@@ -141,5 +153,5 @@ La App Theme es la única que **no tiene fallback**, porque ella **es el origen 
 | ID | Riesgo | Mitigación |
 |---|---|---|
 | R-01 | Otras apps importan modelos de Theme directamente | Toda referencia a Theme via `apps.is_installed('theme')` |
-| R-02 | Apps 3-9 sin `fallback_layout.html` propio | Cada app debe definir su fallback; es parte de su DoD |
+| R-02 | Apps consumidoras o Product Core sin `fallback_layout.html` propio | Cada consumidor debe definir su fallback; es parte de su DoD |
 

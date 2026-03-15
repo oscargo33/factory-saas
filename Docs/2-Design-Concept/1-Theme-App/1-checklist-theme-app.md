@@ -12,6 +12,7 @@
 | Versión | Fecha | Autor | Cambio |
 |---|---|---|---|
 | v1.0 | 2026-03-14 | Arq. IA (GitHub Copilot) | Creación inicial del paquete de diseño Theme |
+| v1.1 | 2026-03-14 | Arq. IA (GitHub Copilot) | Alineación explícita de alcance global, fallback e i18n multiidioma |
 
 ---
 
@@ -47,6 +48,13 @@
 - [x] Política para consumidores cuando Theme no está instalado.
 - [x] Riesgos principales y mitigaciones de diseño.
 
+### F. Cobertura global e i18n
+
+- [x] Theme cubre todas las apps consumidoras y Product Core integrado.
+- [x] Todas las apps deben tener `fallback_layout.html` si Theme falla/no está.
+- [x] Idioma base definido: español (`es`) y no se traduce.
+- [x] Matriz inicial definida: 6 idiomas totales (`es` + `en`, `it`, `fr`, `de`, `pt`).
+
 ---
 
 ## Criterio de Cierre (Diseño App 1)
@@ -54,3 +62,4 @@
 - [ ] Todos los documentos TH-2 a TH-5 aprobados por revisión arquitectónica.
 - [ ] Trazabilidad completa a Core Concept y a DC globales.
 - [ ] Lista de interfaces públicas estable y versionada.
+- [ ] Matriz de idiomas inicial (6) validada por negocio y producto.

@@ -10,6 +10,10 @@
 
 Definir estándar de componentes UI reutilizables y su integración con Tailwind + Alpine en todas las apps consumidoras.
 
+Alcance explícito:
+- Aplicar look and feel homogéneo a todas las apps del ecosistema y al Product Core integrado.
+- Definir comportamiento de fallback visual cuando Theme no esté disponible o no esté saludable.
+
 ---
 
 ## 2. Estructura de componentes
@@ -73,6 +77,7 @@ Uso no permitido:
 | Theme instalado y sano | Render normal con tokens tenant |
 | Theme instalado, sin `ThemeConfig` | Render con `DEFAULT_THEME_TOKENS` |
 | Theme no instalado | Cada app usa `fallback_layout.html` propio |
+| Theme no saludable (timeout/error) | Cada app y Product Core degradan a layout local con tokens por defecto |
 | Componente Cotton faltante | Render degradado HTML semántico básico |
 
 ---
@@ -83,3 +88,4 @@ Uso no permitido:
 - [ ] No hay hardcode de colores fuera de defaults.
 - [ ] Las apps consumidoras pueden renderizar sin Theme.
 - [ ] Se mantiene accesibilidad mínima en componentes críticos.
+- [ ] Product Core puede renderizar tokens y componentes de Theme con fallback documentado.

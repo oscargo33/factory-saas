@@ -19,13 +19,14 @@ Estos selectors pueden ser consumidos por otras apps.
 
 | Función | Firma | Retorna | Consumidores |
 |---|---|---|---|
-| `get_theme_for_tenant` | `(tenant_slug: str) -> dict | None` | Tokens activos | Todas las apps UI |
-| `get_translation` | `(key: str, lang: str, tenant_slug: str) -> str` | Texto traducido o key fallback | Todas las apps |
-| `get_translations_batch` | `(keys: list[str], lang: str, tenant_slug: str) -> dict[str, str]` | Mapa de traducciones | Home, Support, Orders |
+| `get_theme_for_tenant` | `(tenant_slug: str) -> dict | None` | Tokens activos | Todas las apps UI + Product Core |
+| `get_translation` | `(key: str, lang: str, tenant_slug: str) -> str` | Texto traducido o key fallback | Todas las apps + Product Core |
+| `get_translations_batch` | `(keys: list[str], lang: str, tenant_slug: str) -> dict[str, str]` | Mapa de traducciones | Home, Support, Orders, Product Core |
 
 ### Comportamiento de fallback
 
 - Sin Theme instalado: retorna defaults neutros (`DEFAULT_THEME_TOKENS`, `key` original).
+- Theme no saludable/timeout: retorna defaults neutros (`DEFAULT_THEME_TOKENS`, `key` original) y registra evento de telemetría.
 - Sin key existente: retorna la `key` y genera evento para curación posterior.
 
 ---
@@ -37,13 +38,27 @@ Estos selectors pueden ser consumidos por otras apps.
 | `upsert_translation` | `(key, lang, text, tenant_slug, source='manual') -> None` | Crea/actualiza glosario |
 | `bulk_sync_translations` | `(items: list[dict], tenant_slug: str) -> int` | Sincronización masiva |
 | `set_active_theme` | `(tenant_slug: str, payload: dict) -> None` | Actualiza `ThemeConfig` activo |
-| `translate_with_fallback` | `(key, lang, tenant_slug) -> str` | Cache -> DB -> proveedor externo |
+| `translate_with_fallback` | `(key, lang, tenant_slug) -> str` | Cache -> DB -> Django i18n -> LibreTranslate |
 
 ### Reglas
 
 - Escritura solo vía services.
 - Operaciones de escritura en transacción atómica.
 - Se invalidan cachés de selector al modificar `Glossary` o `ThemeConfig`.
+
+### Política de idiomas
+
+- Idioma base obligatorio: `es` (no traducible).
+- Matriz inicial: 6 idiomas totales (`es` + `en`, `it`, `fr`, `de`, `pt`).
+- Traducción activa: `en`, `it`, `fr`, `de`, `pt`.
+
+### Flujo del engine de traducción
+
+1. Resolver idioma con capacidades de Django (`LocaleMiddleware`, `translation.activate`, `gettext`).
+2. Buscar traducción en caché (Redis).
+3. Buscar en `Glossary` (JSONB).
+4. Si falta, solicitar traducción a LibreTranslate y persistir en DB/caché.
+5. Si falla el proveedor externo, retornar `key` o texto base en español.
 
 ---
 
@@ -56,6 +71,7 @@ Versión inicial: `theme.contract.v1`
 | `theme.get_tokens.v1` | Selector | `{tenant_slug}` | `{primary_color, secondary_color, ...}` |
 | `theme.translate.v1` | Selector | `{key, lang, tenant_slug}` | `{text}` |
 | `theme.translate_batch.v1` | Selector | `{keys, lang, tenant_slug}` | `{translations}` |
+| `theme.language_matrix.v1` | Selector | `{tenant_slug}` | `{base: 'es', enabled: [...]}` |
 
 ### Política de versión
 
@@ -78,3 +94,5 @@ Versión inicial: `theme.contract.v1`
 - [ ] Todos los contratos públicos de Theme están versionados.
 - [ ] Hay fallback neutral para falta de Theme o faltante de traducción.
 - [ ] No existe escritura fuera de `services.py`.
+- [ ] `translate_with_fallback` usa capacidades de traducción de Django antes del fallback externo.
+- [ ] Product Core puede consumir `theme.get_tokens.v1` y `theme.translate.v1`.

@@ -36,6 +36,11 @@ Responsabilidad:
 3. Idioma por tenant.
 4. Default global `es`.
 
+Implementación base:
+- Activar idioma usando capacidades nativas de Django (`django.utils.translation.activate`).
+- Exponer `request.LANGUAGE_CODE` y `request.ui_lang` de forma consistente.
+- Compatibilidad con `gettext`/`gettext_lazy` para cadenas internas del framework.
+
 Resultado: `request.ui_lang`.
 
 ---
@@ -76,8 +81,13 @@ Prefijo sugerido: `/internal/theme/`
 
 Si Theme no está instalado:
 - Los endpoints no existen (404 controlado por routing).
-- Apps consumidoras deben renderizar con fallback local.
+- Apps consumidoras y Product Core deben renderizar con fallback local (`fallback_layout.html`).
 - No debe romperse ningún flujo transaccional.
+
+Si Theme está instalado pero no saludable:
+- Se usa `DEFAULT_THEME_TOKENS`.
+- El idioma cae a `es` y/o cadena base disponible.
+- Se registra evento de telemetría para observabilidad.
 
 ---
 
@@ -86,3 +96,5 @@ Si Theme no está instalado:
 - [ ] Middleware define `theme_tokens` y `ui_lang` en todos los requests de tenant.
 - [ ] Endpoints internos tienen RBAC y aislamiento por tenant.
 - [ ] Sin Theme instalado, el sistema mantiene operación con fallback.
+- [ ] `LanguageResolverMiddleware` usa `translation.activate` de Django.
+- [ ] Product Core está contemplado en degradación visual e i18n.

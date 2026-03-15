@@ -12,6 +12,12 @@
 
 Este paquete define el diseño funcional de la App Theme como base visual e i18n del ecosistema. Debe respetar la política de independencia entre apps y proporcionar contratos estables para consumo transversal.
 
+Alcance obligatorio del paquete:
+- Controlar el look and feel de todas las apps (2-9) y del Product Core integrado.
+- Proveer componentes y tokens visuales basados en Tailwind CSS + Django Cotton.
+- Proveer engine de traducción por base de datos usando capacidades nativas de traducción de Django y fallback a LibreTranslate.
+- Exigir fallback visual y de i18n en cada app consumidora cuando Theme no esté instalado o no esté saludable.
+
 ---
 
 ## Documentos del paquete Theme

@@ -32,7 +32,7 @@ Definir las entidades de datos de Theme para personalización visual e internaci
 ### Reglas
 
 - `key` usa naming de punto jerárquico: `scope.section.item`.
-- `translations` debe contener al menos un idioma base (`es` o `en`).
+- `translations` debe contener obligatoriamente idioma base `es`.
 - No se almacenan textos con secretos o credenciales.
 
 ---
@@ -75,7 +75,25 @@ Definir las entidades de datos de Theme para personalización visual e internaci
 
 ---
 
-## 5. Relación con otros documentos
+## 5. Política i18n de datos
+
+La app Theme centraliza traducciones para todas las apps y para Product Core integrado.
+
+| Regla | Valor de diseño |
+|---|---|
+| Idioma base | `es` (español) |
+| Matriz inicial total | 6 idiomas (`es` + `en`, `it`, `fr`, `de`, `pt`) |
+| Traducción activa | `en`, `it`, `fr`, `de`, `pt` |
+| Persistencia | Traducciones en `Glossary.translations` (JSONB por código ISO) |
+
+Notas:
+- La estructura JSONB permite ampliar idiomas sin migraciones de esquema.
+- El idioma base siempre debe existir por cada `key` del glosario.
+- El idioma base `es` no se traduce; actúa como referencia canónica.
+
+---
+
+## 6. Relación con otros documentos
 
 | Documento | Relación |
 |---|---|
@@ -85,8 +103,10 @@ Definir las entidades de datos de Theme para personalización visual e internaci
 
 ---
 
-## 6. Criterios de aceptación
+## 7. Criterios de aceptación
 
 - [ ] `Glossary` y `ThemeConfig` tienen ownership claro en App Theme.
 - [ ] Ambos modelos viven en schema tenant, no en `public`.
 - [ ] Existen reglas explícitas de fallback para consumidores.
+- [ ] El idioma base `es` es obligatorio por cada key de `Glossary`.
+- [ ] El modelo soporta matriz inicial de 6 idiomas totales (`es` + `en`, `it`, `fr`, `de`, `pt`).

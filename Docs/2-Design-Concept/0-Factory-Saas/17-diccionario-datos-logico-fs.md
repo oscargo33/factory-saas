@@ -141,9 +141,40 @@ Todas las entidades a continuación viven en el esquema del tenant y son complet
 | `is_active` | BooleanField | Visible en catálogo |
 | `metadata` | JSONB | Atributos adicionales variables |
 
+### 4.5. `Vertical` (App: `product_orchestrator`)
+
+| Campo | Tipo | Descripción |
+|---|---|---|
+| `id` | UUID PK | Identificador único |
+| `tenant_id` | UUID | Tenant propietario |
+| `product_id` | UUID | Referencia lógica a Product |
+| `feature_key` | CharField(120) unique por tenant | Clave técnica de capacidad |
+| `name` | CharField(200) | Nombre de capacidad |
+| `quota_limit` | IntegerField nullable | Límite de consumo |
+| `is_active` | BooleanField | Disponibilidad de capacidad |
+| `metadata` | JSONB | Configuración técnica variable |
+| `created_at` | DateTimeField | Fecha de creación |
+| `updated_at` | DateTimeField | Última modificación |
+
+### 4.6. `Entitlement` (App: `product_orchestrator`)
+
+| Campo | Tipo | Descripción |
+|---|---|---|
+| `id` | UUID PK | Identificador único |
+| `tenant_id` | UUID | Tenant autorizado |
+| `vertical_id` | UUID | Referencia lógica a Vertical |
+| `source` | CharField choices | `payment`, `admin`, `demo` |
+| `status` | CharField choices | `active`, `paused`, `expired`, `revoked` |
+| `starts_at` | DateTimeField | Inicio de vigencia |
+| `ends_at` | DateTimeField nullable | Fin de vigencia |
+| `quota_used` | IntegerField | Consumo acumulado |
+| `quota_reset_at` | DateTimeField | Próximo reset de cuota |
+| `created_at` | DateTimeField | Fecha de creación |
+| `updated_at` | DateTimeField | Última modificación |
+
 ---
 
-### 4.5. `Order` (App: `orders`)
+### 4.7. `Order` (App: `orders`)
 
 | Campo | Tipo | Descripción |
 |---|---|---|
@@ -156,7 +187,7 @@ Todas las entidades a continuación viven en el esquema del tenant y son complet
 | `created_at` | DateTimeField | Fecha de creación |
 | `updated_at` | DateTimeField | Última actualización |
 
-### 4.6. `OrderLine` (App: `orders`)
+### 4.8. `OrderLine` (App: `orders`)
 
 | Campo | Tipo | Descripción |
 |---|---|---|
@@ -168,7 +199,7 @@ Todas las entidades a continuación viven en el esquema del tenant y son complet
 
 ---
 
-### 4.7. `Subscription` (App: `payments`)
+### 4.9. `Subscription` (App: `payments`)
 
 | Campo | Tipo | Descripción |
 |---|---|---|
@@ -181,7 +212,7 @@ Todas las entidades a continuación viven en el esquema del tenant y son complet
 
 ---
 
-### 4.8. `SupportTicket` (App: `support`)
+### 4.10. `SupportTicket` (App: `support`)
 
 | Campo | Tipo | Descripción |
 |---|---|---|
@@ -197,7 +228,7 @@ Todas las entidades a continuación viven en el esquema del tenant y son complet
 
 ---
 
-### 4.9. `TelemetryEvent` (App: `core` / schema `public`)
+### 4.11. `TelemetryEvent` (App: `core` / schema `public`)
 
 | Campo | Tipo | Descripción |
 |---|---|---|

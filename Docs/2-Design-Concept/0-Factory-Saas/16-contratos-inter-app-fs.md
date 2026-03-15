@@ -148,8 +148,20 @@ Matriz inicial de idiomas (v1):
 |---|---|---|---|
 | `get_available_products` | Selector | `(tenant_id: int) → QuerySet` | QuerySet de productos activos |
 | `get_product_detail` | Selector | `(product_id: int, tenant_id: int) → ProductDetail \| None` | Dataclass o None |
+| `get_feature_state` | Selector | `(tenant_id: int, feature_key: str) → FeatureStateDTO` | Estado de feature y cuota |
+| `list_entitlements` | Selector | `(tenant_id: int) → list[EntitlementDTO]` | Entitlements activos del tenant |
+| `authorize_feature` | Service | `(tenant_id: int, feature_key: str, consume: int=0) → AuthorizationResultDTO` | Permiso de uso + cuota restante |
+| `provision_tenant` | Service | `(tenant_id: int, product_id: UUID, source: str) → ProvisionResultDTO` | Aprovisionamiento y alta de entitlements |
+| `revoke_entitlement` | Service | `(tenant_id: int, feature_key: str, reason: str) → RevokeResultDTO` | Revocación auditable |
 
-**Fallback si no instalado:** Retornar QuerySet vacío.
+**Fallback si no instalado:**
+- Selectores de lista/detalle retornan vacíos (`[]`/`None`).
+- `get_feature_state` retorna `enabled=False` con razón `orchestrator_unavailable`.
+- Services retornan denegación controlada sin lanzar excepción no manejada.
+
+Fallback adicional por dependencias suaves internas:
+- Si `payments` no está instalado: `provision_tenant` solo permite productos `demo`.
+- Si `profile` no está instalado: `authorize_feature` deniega features sensibles (`profile_unavailable`).
 
 **Consumidores:** `orders` (líneas de pedido), `marketing` (catálogo en campañas).
 

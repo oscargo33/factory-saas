@@ -76,3 +76,33 @@ Cuando pidas a la IA generar esta aplicación, usa este prompt:
 
 La App Profiles es el "corazón operativo". Puede funcionar perfectamente solo con la App 1 y 2. Si las Apps comerciales (4-9) desaparecen, el usuario aún puede gestionar su cuenta y sus organizaciones, garantizando que el sistema nunca sea un "ladrillo" (brick).
 
+---
+
+## Independencia y Contexto de Ecosistema
+
+### Scope / No Scope
+- **Scope:** Identidad global de usuarios, multitenancy (esquema PostgreSQL por tenant), membresías y roles (RBAC), dashboard agregador de lectura.
+- **No Scope:** Pricing, pagos, descuentos, catálogo de productos.
+
+### Interacciones con otras apps
+- **Provee a:** App 4 (Orchestrator) — contexto de quién solicita acceso; App 8 (Support) — historial del usuario; App 9 (Home) — rutas de redirección post-login.
+- **Consume de (soft-dependency):**
+  - App 1 (Theme): estilos. Fallback: `templates/profiles/fallback/dashboard_basic.html`.
+  - App 2 (Telemetry): reporta creación de perfil. Fallback: perfil se crea igualmente, sin reporte.
+  - App 6 (Orders): historial de pedidos para dashboard. Fallback: sección no se renderiza (`[]`).
+  - App 8 (Support): tickets activos para dashboard. Fallback: sección no se renderiza (`[]`).
+
+### Entidades de negocio propias
+| Entidad | Descripción |
+|---|---|
+| User | Identidad global en esquema `public` (email, password, MFA) |
+| Tenant | Organización aislada por esquema PostgreSQL |
+| Membership | Relación User-Tenant con rol (Owner, Admin, Member) |
+| Profile | Preferencias del usuario dentro del tenant (esquema tenant) |
+
+### Riesgos conceptuales aplicables
+| ID | Riesgo | Mitigación |
+|---|---|---|
+| R-01 | Otras apps importan modelos User/Tenant directamente | Solo acceso via `ProfilesService` / `ProfilesSelector` |
+| R-05 | Fuga de datos entre tenants | Aislamiento por esquema PostgreSQL + middleware router de esquemas |
+

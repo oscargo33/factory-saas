@@ -87,3 +87,28 @@ Cuando decidas programar esta app, utiliza este prompt:
 
 La App Telemetry debe poder activarse y desactivarse sin afectar el despliegue. Si no está presente, los `Services` de las otras apps simplemente detectarán que el servicio de telemetría es `None` y continuarán su proceso normal.
 
+---
+
+## Independencia y Contexto de Ecosistema
+
+### Scope / No Scope
+- **Scope:** Trazabilidad, métricas operativas y comerciales, push asíncrono a La Central (Celery), API de inspección pull (DRF), registro de auditoría inmutable.
+- **No Scope:** Lógica comercial, checkout, descuentos, autenticación de usuarios.
+
+### Interacciones con otras apps
+- **Provee a:** La Central (sistema externo) — envía métricas de todas las apps.
+- **Consume de (soft-dependency):** recibe eventos de Apps 3-9. Si Telemetry no está, cada app guarda logs locales y continúa funcionando.
+- **Fallback si Telemetry no está:** métricas almacenadas en tabla `PendingMetrics` local; retry con exponential backoff cuando La Central vuelva.
+
+### Entidades de negocio propias
+| Entidad | Descripción |
+|---|---|
+| TelemetryEvent | Evento operativo/comercial de observabilidad (inmutable) |
+| PendingMetrics | Buffer local de métricas cuando La Central no está disponible |
+
+### Riesgos conceptuales aplicables
+| ID | Riesgo | Mitigación |
+|---|---|---|
+| R-02 | La Central no disponible → pérdida de métricas | `PendingMetrics` + Celery retry con exponential backoff |
+| R-04 | Inconsistencia de eventos entre apps | `X-Trace-ID` propagado en cada request via `TelemetryMiddleware` |
+

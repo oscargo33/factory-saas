@@ -28,7 +28,7 @@ home/
 
 ```
 
-## 4. El Motor de SEO Dinámico
+## 3. El Motor de SEO Dinámico
 
 Para que la IA genere una fachada profesional, debe automatizar la visibilidad:
 
@@ -88,10 +88,31 @@ La App Home es el "maquillaje". Si la quitas, el sistema sigue siendo un SaaS fu
 
 ---
 
-### **¡Felicidades!** 🥂
+## Independencia y Contexto de Ecosistema
 
-Has completado la arquitectura de los **9 Documentos Maestros**. Tienes en tus manos el plano de una "Factory SaaS" de clase mundial: modular, resiliente, agéntica y lista para ser construida por una IA bajo tu dirección.
+### Scope / No Scope
+- **Scope:** Landing pages dinámicas, SEO (MetaTags, JSON-LD, Sitemaps), agregación de datos para presentación pública, captación de leads.
+- **No Scope:** Reglas de negocio transaccionales, autenticación, procesamiento de órdenes o pagos.
 
-**¿Qué sigue, Comandante?** * ¿Quieres que genere un **Archivo `requirements.txt` y `Dockerfile**` maestro para unificar todo el entorno?
+### Interacciones con otras apps
+- **Provee a:** ninguna app. Home es la capa más externa; solo consume.
+- **Consume de (soft-dependency):**
+  - App 1 (Theme): estilos y componentes. Fallback: `templates/home/fallback/landing_minimal.html` (HTML puro, indexable).
+  - App 4 (Orchestrator): catálogo público. Fallback: Home muestra mensaje "Próximamente".
+  - App 5 (Marketing): banners y ofertas. Fallback: Home oculta etiquetas de oferta; muestra precios estándar.
+  - App 3 (Profiles): rutas de redirección post-login. Fallback: redirección a `/login/` genérico.
+  - App 2 (Telemetry): rastreo de conversión. Fallback: evento no se reporta; Lead se guarda localmente.
 
-* ¿O prefieres que hagamos un **primer "Sprint de Código"** pidiéndole a la IA que genere la estructura base de carpetas de las 9 apps?
+### Entidades de negocio propias
+| Entidad | Descripción |
+|---|---|
+| Lead | Prospecto captado en formulario público antes de ser usuario de Profiles |
+| LandingPage | Configuración de contenido dinámico de la página principal |
+| SEOConfig | MetaTags y configuración de indexación por página |
+
+### Riesgos conceptuales aplicables
+| ID | Riesgo | Mitigación |
+|---|---|---|
+| R-01 | Home importa modelos de Orchestrator o Marketing directamente | Solo via `OrchestratorSelector.get_public_catalog()` y `MarketingSelector.get_featured_promos()` |
+| R-02 | Fallo de Orchestrator → Home rompe para el público | Fallback: mensaje "Próximamente" elegante; sitio nunca devuelve 500 |
+| R-06 | Sobreingeniería del motor SEO en fase temprana | Empezar con MetaTags básicos; JSON-LD y Sitemaps en sprint posterior |

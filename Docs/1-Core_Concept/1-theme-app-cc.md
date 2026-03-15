@@ -117,3 +117,29 @@ Cuando estés listo para programar esta app, copia este prompt:
 
 La App Theme es la única que **no tiene fallback**, porque ella **es el origen del estilo**. Si ella falla, las Apps 3-9 activarán sus propios `fallback_layout.html`.
 
+---
+
+## Independencia y Contexto de Ecosistema
+
+### Scope / No Scope
+- **Scope:** Design system, tokens CSS via variables CSS, componentes atómicos Cotton, sistema i18n con Redis + PostgreSQL + LibreTranslate.
+- **No Scope:** Cobros, órdenes, entitlements, lógica de negocio transaccional.
+
+### Interacciones con otras apps
+- **Provee a:** todas las apps (2-9) — estilos, componentes Cotton y traducciones.
+- **Consume de:** ninguna app. Theme es el donante de recursos base; no tiene dependencias suaves.
+- **Fallback propio:** Theme no tiene fallback porque es el origen del estilo. Si falla, las Apps 3-9 activan sus propios `fallback_layout.html`.
+
+### Entidades de negocio propias
+| Entidad | Descripción |
+|---|---|
+| Glossary | Glosario de traducciones almacenado en JSONB, cacheado en Redis |
+
+> Theme no posee entidades de negocio transaccionales. Sus modelos son infraestructura de presentación.
+
+### Riesgos conceptuales aplicables
+| ID | Riesgo | Mitigación |
+|---|---|---|
+| R-01 | Otras apps importan modelos de Theme directamente | Toda referencia a Theme via `apps.is_installed('theme')` |
+| R-02 | Apps 3-9 sin `fallback_layout.html` propio | Cada app debe definir su fallback; es parte de su DoD |
+

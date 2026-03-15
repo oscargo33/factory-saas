@@ -85,4 +85,31 @@ Usa este prompt para construir esta app:
 
 El Orchestrator puede vivir sin Marketing, Orders o Support. Su único trabajo es saber qué hay "en la estantería" y si el usuario tiene permiso para tocarlo. Es el guardián de la propiedad intelectual de tu Product Core.
 
-**¿Procedemos con el Documento Maestro 5: App Marketing (Estrategia y Descuentos)?** SUSTITUTO_IMAGEN_1
+---
+
+## Independencia y Contexto de Ecosistema
+
+### Scope / No Scope
+- **Scope:** Catálogo funcional, adaptadores al Product Core externo, entitlements (derechos de acceso por tenant), configuración de Verticals y Products.
+- **No Scope:** Procesamiento de pago, lógica de descuentos, gestión de sesiones de usuario.
+
+### Interacciones con otras apps
+- **Provee a:** App 6 (Orders) — existencia y precio de productos; App 9 (Home) — catálogo público; App 7 (Payment) — recibe activación de entitlements post-pago.
+- **Consume de (soft-dependency):**
+  - App 3 (Profiles): valida quién solicita el acceso. Fallback: bloquea la función con mensaje "no autorizado".
+  - App 7 (Payment): valida si el tenant pagó. Fallback: modo Demo con acceso gratuito limitado.
+  - App 2 (Telemetry): reporta aprovisionamiento. Fallback: proceso continúa sin reporte.
+
+### Entidades de negocio propias
+| Entidad | Descripción |
+|---|---|
+| Product | Oferta comercial visible al cliente |
+| Vertical | Capacidad técnica específica del Product Core |
+| Entitlement | Derecho de uso: tenant + feature + periodo activo |
+
+### Riesgos conceptuales aplicables
+| ID | Riesgo | Mitigación |
+|---|---|---|
+| R-01 | Acoplamiento directo con Payment o Profiles | Adapter Pattern; verificar con `apps.is_installed` antes de cualquier llamada |
+| R-02 | Product Core caído sin mensaje amigable | Adaptador captura error y devuelve "Servicio temporalmente no disponible" |
+| R-07 | Dependencia de un solo proveedor de core externo | Adapter Pattern con `adapters/base.py` abstracto; implementaciones intercambiables |

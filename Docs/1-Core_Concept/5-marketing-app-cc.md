@@ -87,4 +87,29 @@ Usa este prompt para construir esta app:
 
 La App Marketing es un "satélite". Si la borras, el SaaS sigue vendiendo (a precio completo). Si la instalas, el SaaS se vuelve comercialmente agresivo. Esta independencia permite probar diferentes estrategias de venta sin tocar el núcleo de facturación.
 
-**¿Procedemos con el Documento Maestro 6: App Orders (Gestión de Carritos e Intención)?**
+---
+
+## Independencia y Contexto de Ecosistema
+
+### Scope / No Scope
+- **Scope:** Motor de reglas de descuento automático, gestión de cupones, campañas promocionales, banners para Home.
+- **No Scope:** Persistencia financiera, procesamiento de cobros, catálogo de productos (solo los lee).
+
+### Interacciones con otras apps
+- **Provee a:** App 6 (Orders) — precio con descuento calculado; App 9 (Home) — banners de ofertas activas.
+- **Consume de (soft-dependency):**
+  - App 4 (Orchestrator): precios base para calcular descuentos. Fallback: Marketing devuelve `[]` si Orchestrator no está.
+  - App 2 (Telemetry): reporta validación de cupones. Fallback: proceso de descuento continúa sin reporte.
+
+### Entidades de negocio propias
+| Entidad | Descripción |
+|---|---|
+| DiscountRule | Regla automática de descuento (porcentaje/monto fijo, vigencia) |
+| Coupon | Código promocional con límites de uso y expiración |
+| Campaign | Agrupador de reglas y cupones bajo un concepto de marketing |
+
+### Riesgos conceptuales aplicables
+| ID | Riesgo | Mitigación |
+|---|---|---|
+| R-01 | Orders importa modelos de Marketing directamente | Solo acceso via `MarketingService.apply_marketing_to_product()` |
+| R-06 | Sobreingeniería del motor de descuentos en fase temprana | Implementar motor simple primero; escalar en sprints posteriores |

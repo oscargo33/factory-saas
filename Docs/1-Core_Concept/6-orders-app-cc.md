@@ -78,4 +78,30 @@ Usa este prompt para construir esta app:
 
 La App Orders es el puente entre el catálogo (Orchestrator) y el dinero (Payment). Puede funcionar perfectamente sin Marketing (no hay descuentos) o sin Support. Su único "piso" obligatorio es tener un producto que vender y un usuario a quién cargárselo.
 
-**¿Procedemos con el Documento Maestro 7: App Payment (Pasarelas y Suscripciones)?** SUSTITUTO_IMAGEN_1
+---
+
+## Independencia y Contexto de Ecosistema
+
+### Scope / No Scope
+- **Scope:** Carrito de compras (dinámico), snapshot inmutable de orden, máquina de estados de orden, ciclo de vida completo hasta entrega a Payment.
+- **No Scope:** Ejecución financiera real, procesamiento de pagos, autenticación de usuarios.
+
+### Interacciones con otras apps
+- **Provee a:** App 7 (Payment) — monto e ID de orden para cobrar; App 8 (Support) — contexto de reclamos; App 3 (Profiles) — historial de pedidos para dashboard.
+- **Consume de (soft-dependency):**
+  - App 4 (Orchestrator): valida existencia y precio de productos. Fallback: bloquea el checkout si el producto no existe.
+  - App 5 (Marketing): aplica descuentos. Fallback: orden se crea al precio de lista (`Decimal('0.00')` de descuento).
+  - App 2 (Telemetry): reporta intentos de compra. Fallback: log local para conciliación posterior.
+
+### Entidades de negocio propias
+| Entidad | Descripción |
+|---|---|
+| Cart | Intención de compra editable; precio actualizable mientras está activo |
+| Order | Snapshot inmutable de todos los precios, impuestos y descuentos al momento del checkout |
+| OrderItem | Línea de producto dentro de la orden (precio congelado) |
+
+### Riesgos conceptuales aplicables
+| ID | Riesgo | Mitigación |
+|---|---|---|
+| R-01 | Payment consulta Cart/Order directamente via modelos | Solo acceso via `OrdersService.freeze_cart()` y `OrdersSelector` |
+| R-02 | Marketing falla durante checkout → precio indefinido | Fallback explícito: `descuento = Decimal('0.00')` si Marketing no responde |

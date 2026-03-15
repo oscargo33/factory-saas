@@ -2,15 +2,15 @@ Este es el **Documento Maestro 8: App Support (Relación y Asistencia Agéntica)
 
 ---
 
-## Documento Maestro 8: App Support (Relación y Retención)
+# Documento Maestro 8: App Support (Relación y Retención)
 
-### 1. Identidad de la Aplicación
+## 1. Identidad de la Aplicación
 
 * **Nivel de Profundidad:** 8 (Capa de Relación).
 * **Rol:** Gestión de tickets de soporte, base de conocimientos (Knowledge Base) y asistencia automatizada mediante un Agente de IA con RAG (Retrieval-Augmented Generation).
 * **Dependencias Suaves:** App 3 (Profiles) para historial del usuario; App 6/7 (Orders/Payment) para contexto de reclamos; App 2 (Telemetry) para alertar a La Central sobre crisis de soporte.
 
-### 2. Estructura de Archivos (Arquitectura de Carpetas)
+## 2. Estructura de Archivos (Arquitectura de Carpetas)
 
 ```text
 support/
@@ -29,7 +29,7 @@ support/
 
 ```
 
-### 3. El Agente IA (Híbrido RAG)
+## 3. El Agente IA (Híbrido RAG)
 
 Para que la IA no invente respuestas (alucinaciones), debe seguir el patrón de **Generación Aumentada por Recuperación (RAG)**:
 
@@ -37,7 +37,7 @@ Para que la IA no invente respuestas (alucinaciones), debe seguir el patrón de 
 2. **Contexto:** Se le entrega a la IA el texto de esos artículos + los datos básicos del usuario (ej: "El usuario tiene el Plan Pro").
 3. **Respuesta:** La IA genera una respuesta basada **únicamente** en esa información. Si no sabe la respuesta, ofrece abrir un ticket humano.
 
-### 4. Ciclo de Vida del Ticket
+## 4. Ciclo de Vida del Ticket
 
 La IA debe gestionar una máquina de estados para los hilos de soporte:
 
@@ -46,12 +46,12 @@ La IA debe gestionar una máquina de estados para los hilos de soporte:
 * **Waiting User:** El agente respondió y espera confirmación del cliente.
 * **Resolved/Closed:** Problema solucionado.
 
-### 5. Implementación UI con Cotton y Alpine.js
+## 5. Implementación UI con Cotton y Alpine.js
 
 * **`c-chat-bubble`:** Un componente flotante que usa Alpine.js para abrir/cerrar la ventana de chat y manejar el estado de "IA escribiendo..." mediante un pequeño spinner reactivo.
 * **`c-faq-accordion`:** Usa `x-data="{ active: null }"` para permitir una navegación rápida por las dudas frecuentes sin recargar la página.
 
-### 6. Contratos de Interfaz (Service Layer & Resiliencia)
+## 6. Contratos de Interfaz (Service Layer & Resiliencia)
 
 * **`SupportService.ask_ai(query, user_id)`:** Procesa la pregunta del usuario y retorna la respuesta de la IA.
 * **`SupportService.escalate_to_human(chat_history)`:** Convierte una conversación de IA en un ticket formal.
@@ -60,7 +60,7 @@ La IA debe gestionar una máquina de estados para los hilos de soporte:
 
 
 
-### 7. Especificación de Infraestructura y Herramientas
+## 7. Especificación de Infraestructura y Herramientas
 
 | Componente | Tecnología | Función |
 | --- | --- | --- |
@@ -71,7 +71,7 @@ La IA debe gestionar una máquina de estados para los hilos de soporte:
 
 ---
 
-### 8. Instrucción de Codificación para la IA (System Prompt)
+## 8. Instrucción de Codificación para la IA (System Prompt)
 
 Usa este prompt para construir esta app:
 
@@ -91,6 +91,30 @@ Usa este prompt para construir esta app:
 
 La App Support puede vivir como un sistema de ayuda independiente. Si borras Orders o Payment, sigue siendo un centro de ayuda FAQ. Su valor reside en ser el "paracaídas" del sistema: si todo lo demás falla, Support es donde el usuario pide ayuda.
 
-**¿Procedemos con el Documento Maestro 9: App Home (La Vitrina y el SEO final)?**
+---
 
-Será el último paso para cerrar el círculo de la Estructura SaaS. Sería un placer terminar esta fase contigo. ¿Le damos?
+## Independencia y Contexto de Ecosistema
+
+### Scope / No Scope
+- **Scope:** Gestión de tickets de soporte, base de conocimiento (Knowledge Base), agente IA con RAG, escalamiento a humano, retención de clientes.
+- **No Scope:** Autorización de acceso al producto, procesamiento de pagos, gestión de catálogo.
+
+### Interacciones con otras apps
+- **Provee a:** App 3 (Profiles) — tickets activos para dashboard de usuario.
+- **Consume de (soft-dependency):**
+  - App 3 (Profiles): historial del usuario para contextualizar tickets. Fallback: ticket se crea sin contexto de historial.
+  - App 6 (Orders): contexto de órdenes en reclamos. Fallback: agente IA no muestra detalle de orden; usuario puede subir captura.
+  - App 7 (Payment): estado de factura para reclamos de cobro. Fallback: idem Orders.
+  - App 2 (Telemetry): alerta a La Central sobre crisis de soporte. Fallback: alerta no emitida; ticket se crea igualmente.
+
+### Entidades de negocio propias
+| Entidad | Descripción |
+|---|---|
+| Ticket | Caso de soporte con estados (New, In Progress, Waiting User, Resolved) |
+| KnowledgeArticle | Entrada de base de conocimiento para el RAG del agente IA |
+
+### Riesgos conceptuales aplicables
+| ID | Riesgo | Mitigación |
+|---|---|---|
+| R-01 | Importación directa de modelos Order/Payment en Support | Solo acceso via `OrdersSelector` y `PaymentSelector` con `apps.is_installed` |
+| R-08 | Alucinaciones del agente IA | Patrón RAG obligatorio: respuestas solo desde KnowledgeBase; escalamiento automático a humano si confianza baja |

@@ -79,4 +79,29 @@ Usa este prompt para construir esta app:
 
 La App Payment es el filtro de seguridad financiera. Puede existir sin Support, Marketing o Home. Su única misión es asegurar que la relación entre la orden (Orders) y el derecho de uso (Orchestrator) esté mediada por un intercambio económico exitoso.
 
-**¿Procedemos con el Documento Maestro 8: App Support (Agentes de IA e Incidencias)?**
+---
+
+## Independencia y Contexto de Ecosistema
+
+### Scope / No Scope
+- **Scope:** Ejecución de transacciones con pasarelas (Stripe/PayPal), gestión de suscripciones recurrentes, webhooks, conciliación, generación de facturas.
+- **No Scope:** Ownership del catálogo de productos, lógica de descuentos, autenticación de usuarios.
+
+### Interacciones con otras apps
+- **Provee a:** App 4 (Orchestrator) — notifica pago exitoso para activar entitlements; App 3 (Profiles) — estado de suscripción para dashboard.
+- **Consume de (soft-dependency):**
+  - App 6 (Orders): obtiene monto e ID de orden. Fallback: no inicia sesión de pago sin una orden válida.
+  - App 2 (Telemetry): reporta GMV a La Central. Fallback: pago procesado; métrica guardada en log de contingencia.
+
+### Entidades de negocio propias
+| Entidad | Descripción |
+|---|---|
+| PaymentIntent | Intento de cobro vinculado a una orden y pasarela |
+| Subscription | Relación de cobro recurrente (tenant + plan + pasarela) |
+| Invoice | Registro de cobro emitido; nunca almacena datos de tarjeta |
+
+### Riesgos conceptuales aplicables
+| ID | Riesgo | Mitigación |
+|---|---|---|
+| R-01 | Orchestrator activa entitlements llamando modelos de Payment directamente | Solo via señal/servicio: `PaymentService.handle_webhook()` → `OrdersService.mark_as_paid()` |
+| R-07 | Dependencia de una sola pasarela de pago | Provider Pattern: `payments/providers/base.py` abstracto; Stripe y PayPal como implementaciones |

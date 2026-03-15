@@ -97,7 +97,38 @@ Todas las entidades a continuación viven en el esquema del tenant y son complet
 
 ---
 
-### 4.2. `Product` (App: `product_orchestrator`)
+### 4.2. `Glossary` (App: `theme`)
+
+| Campo | Tipo | Descripción |
+|---|---|---|
+| `id` | UUID PK | Identificador único |
+| `key` | CharField(190) unique | Clave semántica (`ui.buttons.save`) |
+| `translations` | JSONB | Traducciones por idioma (`es` base, `en/it/fr/de/pt` activos) |
+| `is_verified` | BooleanField | Marca de validación humana |
+| `source` | CharField(30) | `manual` o `ai` |
+| `created_at` | DateTimeField | Fecha de creación |
+| `updated_at` | DateTimeField | Fecha de actualización |
+
+### 4.3. `ThemeConfig` (App: `theme`)
+
+| Campo | Tipo | Descripción |
+|---|---|---|
+| `id` | UUID PK | Identificador único |
+| `tenant_slug` | CharField(63) unique | Relación lógica con tenant |
+| `primary_color` | CharField(15) | Token color principal |
+| `secondary_color` | CharField(15) | Token color secundario |
+| `bg_color` | CharField(15) | Token de fondo |
+| `text_color` | CharField(15) | Token de texto |
+| `font_body` | CharField(120) | Tipografía base |
+| `font_heading` | CharField(120) | Tipografía de títulos |
+| `radius_base` | CharField(20) | Radio base de componentes |
+| `is_active` | BooleanField | Configuración activa por tenant |
+| `created_at` | DateTimeField | Fecha de creación |
+| `updated_at` | DateTimeField | Fecha de actualización |
+
+---
+
+### 4.4. `Product` (App: `product_orchestrator`)
 
 | Campo | Tipo | Descripción |
 |---|---|---|
@@ -112,7 +143,7 @@ Todas las entidades a continuación viven en el esquema del tenant y son complet
 
 ---
 
-### 4.3. `Order` (App: `orders`)
+### 4.5. `Order` (App: `orders`)
 
 | Campo | Tipo | Descripción |
 |---|---|---|
@@ -125,7 +156,7 @@ Todas las entidades a continuación viven en el esquema del tenant y son complet
 | `created_at` | DateTimeField | Fecha de creación |
 | `updated_at` | DateTimeField | Última actualización |
 
-### 4.4. `OrderLine` (App: `orders`)
+### 4.6. `OrderLine` (App: `orders`)
 
 | Campo | Tipo | Descripción |
 |---|---|---|
@@ -137,7 +168,7 @@ Todas las entidades a continuación viven en el esquema del tenant y son complet
 
 ---
 
-### 4.5. `Subscription` (App: `payments`)
+### 4.7. `Subscription` (App: `payments`)
 
 | Campo | Tipo | Descripción |
 |---|---|---|
@@ -150,7 +181,7 @@ Todas las entidades a continuación viven en el esquema del tenant y son complet
 
 ---
 
-### 4.6. `SupportTicket` (App: `support`)
+### 4.8. `SupportTicket` (App: `support`)
 
 | Campo | Tipo | Descripción |
 |---|---|---|
@@ -166,7 +197,7 @@ Todas las entidades a continuación viven en el esquema del tenant y son complet
 
 ---
 
-### 4.7. `TelemetryEvent` (App: `core` / schema `public`)
+### 4.9. `TelemetryEvent` (App: `core` / schema `public`)
 
 | Campo | Tipo | Descripción |
 |---|---|---|

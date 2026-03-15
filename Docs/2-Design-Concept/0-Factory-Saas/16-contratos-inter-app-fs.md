@@ -43,7 +43,10 @@ La regla es absoluta: **ninguna app importa modelos de otra. Solo importa servic
 
 | Función pública | Tipo | Firma | Retorna |
 |---|---|---|---|
-| `get_theme_for_tenant` | Selector | `(tenant_id: int) → ThemeConfig \| None` | Dict con CSS variables o None |
+| `get_theme_for_tenant` | Selector | `(tenant_slug: str) → ThemeConfig \| None` | Dict con CSS variables o None |
+| `get_translation` | Selector | `(key: str, lang: str, tenant_slug: str) → str` | Texto traducido o key fallback |
+| `get_translations_batch` | Selector | `(keys: list[str], lang: str, tenant_slug: str) → dict[str, str]` | Mapa de traducciones |
+| `get_language_matrix` | Selector | `(tenant_slug: str) → dict` | Matriz de idiomas habilitados |
 
 **Fallback si no instalado:**
 ```python
@@ -52,7 +55,15 @@ if not apps.is_installed('apps.theme'):
     return {"theme": DEFAULT_THEME_TOKENS}
 ```
 
-**Consumidores:** Context processor global → `base.html`.
+Fallback i18n si no instalado o no saludable:
+- `get_translation` retorna `key` original o texto base `es`.
+- `get_translations_batch` retorna mapa neutral por key.
+
+Matriz inicial de idiomas (v1):
+- Base no traducible: `es`.
+- Traducción activa: `en`, `it`, `fr`, `de`, `pt`.
+
+**Consumidores:** Context processor global, todas las apps UI y Product Core.
 
 ---
 

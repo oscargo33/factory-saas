@@ -1,0 +1,7 @@
+{
+  "profile_id": "profile-uuid-777",
+  "user_id": 123,
+  "tenant_slug": "acme",
+  "display_name": "Alicia Perez",
+  "avatar_url": "https://cdn.example.com/avatars/123.png"
+}

@@ -57,6 +57,12 @@ La IA debe manejar el ciclo de vida del dinero en el tiempo:
 * **Protocolo de Resiliencia:** * Si la **App 2 (Telemetry)** no está, el pago se procesa igual, pero la métrica de venta se guarda en un log de contingencia para ser reportada manualmente a La Central.
 * Si la pasarela está caída, el sistema ofrece un **"Modo de Pago en Revisión"** (ej. transferencia manual) mediante el `fallback_layout.html`.
 
+Requerimientos operativos adicionales (core-level):
+
+- **Emitir OutboxEvent para provisioning:** Tras confirmar pago exitoso y antes de marcar recursos como entregados, `PaymentService` debe crear un `OutboxEvent` con `event_type = "payment.confirmed"` y otro (si corresponde) `event_type = "provision.requested"` que contenga `order_id, tenant_id, operation_id` y el `price_snapshot`. Estos eventos deben ser persistidos en la misma transacción que la confirmación del pago para garantizar entrega at-least-once.
+- **Telemetry y PlanMatrix:** `PaymentService` al confirmar un pago debe incluir en la TelemetryEvent metadata la `plan_id` y la `PlanMatrix.version` aplicada, y emitir `telemetry.event = payment.confirmed` con `tenant_id, order_id, plan_id, matrix_version, amount`.
+- **Idempotencia:** Los handlers de webhook y los procesadores de Outbox deben ser idempotentes por `operation_id`/`payment_intent_id` para evitar dobles activaciones de provisioning.
+
 
 
 ## 7. Instrucción de Codificación para la IA (System Prompt)

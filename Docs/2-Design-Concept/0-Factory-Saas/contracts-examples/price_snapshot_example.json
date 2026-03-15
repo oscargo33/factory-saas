@@ -1,0 +1,10 @@
+{
+  "id": "ps-0001",
+  "order_line_id": "ol-uuid-111",
+  "product_id": "prod-uuid-a",
+  "price": "49.00",
+  "currency": "USD",
+  "price_version_id": "price-v2026-03-01",
+  "applied_taxes": [{"name":"VAT","amount":"7.84"}],
+  "captured_at": "2026-03-15T12:34:56Z"
+}

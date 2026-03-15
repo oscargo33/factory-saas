@@ -92,3 +92,43 @@ Alertas sugeridas:
 - [ ] Pull responde con token valido aun cuando Push esta degradado.
 - [ ] Retry/backoff y dead-letter documentados y verificables.
 - [ ] `TELEMETRY_ENABLED=False` mantiene operacion normal del SaaS.
+
+## 8. Outbox Worker Runbook (integracion cross-app)
+
+Objetivo: procesar la tabla `OutboxEvent` de forma confiable, exponiendo metricas operativas y evitando duplicados en consumidores externos.
+
+Parametros recomendados:
+- Worker: `outbox.processor` (Celery beat + worker).
+- Concurrency: 4 workers por servicio (ajustable por carga).
+- Batch size: 50 eventos por ciclo.
+- Timeout HTTP: 10s por envio.
+- Max retries por evento: 5 (backoff exponencial con jitter).
+
+Flujo de trabajo:
+1. Seleccionar `OutboxEvent` con `status = pending` ordenado por `created_at` (batch).
+2. Marcar transaccionalmente `status = processing` y `processing_started_at`.
+3. Enviar el `payload` al endpoint destino (adapters o La Central según `event_type`).
+4. Si `2xx`: marcar `status = sent`, `sent_at` y emitir `TelemetryEvent(outbox.sent)`.
+5. Si fallo transitorio: incrementar `retry_count`, calcular backoff y dejar `status = pending` para reintento; emitir `TelemetryEvent(outbox.retry)`.
+6. Si supera `max_retries`: mover a `status = failed` y emitir `TelemetryEvent(outbox.failed)`; opcionalmente colocar en `poison_queue` para analisis humano.
+
+Idempotencia y seguridad:
+- Cada `OutboxEvent` debe incluir `operation_id` y `idempotency_key` en el `payload` para permitir reintentos seguros en el consumidor.
+- Consumidores deben ser idempotentes por `operation_id`.
+
+Metricas y alertas:
+- `outbox_pending_count` (alerta: >1000 por 15m).
+- `outbox_processing_duration_ms` (p95 > 5s alerta).
+- `outbox_retry_failure_total` (tasa de fallos > 10% alerta).
+- `outbox_poison_count` (cualquier valor > 0 alerta critica).
+
+Observabilidad:
+- Emitir `TelemetryEvent` para `outbox.sent`, `outbox.retry`, `outbox.failed`, `outbox.poison` con `aggregate_id, event_type, tenant_id, retry_count`.
+
+Operaciones de emergencia:
+- Toggle operativo `OUTBOX_ENABLED=False` para pausar envio sin borrar eventos.
+- Script de reintroduccion: herramienta `outbox.replay(start_date, end_date, filter_event_types)` para reprocesar eventos fallidos tras resolver la causa raiz.
+
+Integracion con alertas y runbook:
+- On `outbox_poison_count > 0`: abrir ticket automatico en `support` con evidencia y payload (sanitize PII).
+

@@ -35,6 +35,11 @@ Para que la IA no cometa errores de integridad financiera, debe entender que una
 * **Cart:** Es dinámico. Si el precio del producto cambia, el carrito se actualiza.
 * **Order:** Es un **Snapshot**. Al crear la orden, se deben copiar los campos `price`, `tax` y `discount` en ese instante. Si el precio sube mañana, la orden ya creada mantiene el precio pactado.
 
+Requerimientos operativos adicionales (core-level):
+
+- **`OrderLine.price_snapshot`**: Cada `OrderItem`/`OrderLine` debe persistir un objeto `price_snapshot` que incluya `price`, `currency`, `price_version_id`, `applied_taxes` y `captured_at`.
+- **`OrderLine.product_type`**: Copiar el `product_type` desde el `ProductDetail` retornado por el `Orchestrator` (`subscription|one_time|metered`) y persistirlo en la línea de la orden para decisiones posteriores (facturación/fulfillment).
+
 ## 4. Máquina de Estados (Order Lifecycle)
 
 La IA debe implementar un control de flujo estricto:
@@ -52,6 +57,8 @@ La IA debe implementar un control de flujo estricto:
 ## 6. Contratos de Interfaz (Service Layer & Resiliencia)
 
 * **`OrdersService.freeze_cart(cart_id)`:** Toma el carrito y crea una `Order` con todos los precios inmutables.
+* **PlanMatrix enforcement:** Antes de convertir carrito → orden, `OrdersService.freeze_cart` debe invocar `product_orchestrator.enforce_plan_policy(tenant_id, product_id, vertical_key)` para validar que el tenant puede comprar ese `product_id`. Si `enforce_plan_policy` devuelve `denied`, la creación de la orden falla con razón explícita.
+* **Outbox on order creation:** Al crear la `Order` (estado `Pending`) la app `orders` debe persistir un `OutboxEvent` con `event_type = "provision.requested"` y `payload` que incluya `order_id, tenant_id, operation_id, items[]` (cada item con `product_id, product_type, price_snapshot`). Esto garantiza entrega confiable hacia `payments`/`orchestrator` para pasos posteriores.
 * **Protocolo de Resiliencia:** * Si la **App 5 (Marketing)** no responde, la orden se crea al precio de lista del Orchestrator sin detener el checkout.
 * Si la **App 2 (Telemetry)** falla, se guarda un log local del intento de compra para conciliación posterior en La Central.
 * El `fallback_layout.html` muestra una tabla simple con los ítems y un botón de "Confirmar", funcional sin CSS avanzado.

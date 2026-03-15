@@ -1,0 +1,12 @@
+{
+  "id": "pmx-0001",
+  "version": "2026-03-15-v1",
+  "plan_id": "plan-uuid-1234",
+  "allowed_products": ["prod-uuid-a","prod-uuid-b"],
+  "allowed_verticals": {
+    "prod-uuid-a": ["feature:reports","feature:export"],
+    "prod-uuid-b": ["feature:analytics"]
+  },
+  "effective_from": "2026-03-01T00:00:00Z",
+  "created_by": "admin@example.com"
+}

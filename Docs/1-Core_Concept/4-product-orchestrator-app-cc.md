@@ -63,6 +63,22 @@ def can_use_feature(tenant, feature_id):
 * **Protocolo de Resiliencia:** * Si la **App 7 (Payment)** no está, el Orchestrator puede entrar en "Modo Demo" permitiendo acceso gratuito limitado.
 * Si el **Product Core** está caído, el adaptador debe capturar el error y devolver un mensaje amigable al usuario en lugar de un error de sistema.
 
+## 8. Especificaciones adicionales de Core
+
+Estas especificaciones se agregan para asegurar consistencia operativa entre el `core` y `orchestrator` desde la perspectiva del concepto de producto y la facturación.
+
+- **PlanMatrix (enforcement):** El Orchestrator aplica una `PlanMatrix` versionada que mapea `plan_id -> allowed_products[] -> allowed_verticals[]`. Ninguna app debe invocar capacidades core sin pasar por `enforce_plan_policy(tenant_id, product_id, vertical_key)` que valida la elegibilidad del tenant y emite un `TelemetryEvent` para auditoría.
+
+- **Productos híbridos y `source_strategy`:** Un `Product` puede ser `core_only`, `local_only` o `hybrid_bundle`. En bundles híbridos, verticales `core` y `local` pueden coexistir; la prestación de las capacidades core depende del adapter y del estado del Product Core.
+
+- **Perfil de producto local (`local_only`):** Permite definir y vender un producto aun cuando el Product Core esté ausente; el Orchestrator crea entitlements locales y gestiona autorizaciones sin invocar adaptadores externos.
+
+- **Cambio de plan transaccional:** Cuando un tenant cambia de plan, el sistema debe ejecutar un cutover transaccional con `operation_id` idempotente, emitir eventos `plan.change.requested|completed|failed` y aplicar `deny-by-default` durante transiciones ambiguas hasta la reconciliación final.
+
+- **Price snapshot y versionado:** El precio usado en la transacción debe guardarse como `price_snapshot` en el `order_line` para garantizar consistencia en cobros/renovaciones/reembolsos aun si el catálogo cambia después.
+
+- **Outbox / idempotency pattern:** Operaciones críticas (webhooks de pago, provisioning, sync) deben usar `operation_id` y persistir eventos en una tabla `outbox_events` dentro de la misma transacción para publicación fiable y deduplicación por consumidores.
+
 
 
 ## 7. Instrucción de Codificación para la IA (System Prompt)

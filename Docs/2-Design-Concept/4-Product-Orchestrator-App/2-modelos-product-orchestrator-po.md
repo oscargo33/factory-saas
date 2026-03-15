@@ -27,6 +27,8 @@ Oferta comercial visible al cliente y consumida por Orders/Marketing/Home.
 | `description` | TextField | Opcional |
 | `price` | Decimal(10,2) | `>= 0` |
 | `currency` | CharField(3) | ISO 4217 |
+| `product_type` | CharField(30) | `subscription`, `one_time`, `metered` |
+| `fulfillment_strategy` | CharField(30) | `digital`, `manual`, `third_party` |
 | `is_active` | BooleanField | Publicable en catalogo |
 | `is_demo` | BooleanField | Producto habilitable sin Payment |
 | `source_strategy` | CharField(20) | `core_only`, `local_only`, `hybrid_bundle` |
@@ -97,6 +99,8 @@ Indices:
 - `authorize_feature` debe considerar `status`, vigencia y cuota.
 - `quota_used` nunca puede exceder `quota_limit` cuando hay limite definido.
 - Revocaciones no eliminan registros; se marca `status=revoked` (auditable).
+ - `product_type` define la modalidad comercial y afecta facturacion/checkout.
+ - `fulfillment_strategy` define el flujo de entrega (digital/operativo) y habilita hooks en `orders`/`support`.
 
 ---
 

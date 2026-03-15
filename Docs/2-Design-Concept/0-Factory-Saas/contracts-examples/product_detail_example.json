@@ -1,0 +1,14 @@
+{
+  "product_id": "prod-uuid-a",
+  "tenant_id": "tenant-uuid-1",
+  "name": "Plan Pro",
+  "slug": "plan-pro",
+  "description": "Acceso a reportes avanzados",
+  "price": "49.00",
+  "currency": "USD",
+  "product_type": "subscription",
+  "fulfillment_strategy": "digital",
+  "source_strategy": "hybrid_bundle",
+  "bundle_definition": {"core": ["feature:reports"], "local": []},
+  "metadata": {"max_users": 50}
+}

@@ -61,6 +61,11 @@ El Dashboard de perfiles no es "dueño" de los datos, los solicita mediante **So
 * **`ProfilesService.switch_tenant(user, tenant_id)`:** Valida la membresía y redirige al dominio/esquema correspondiente.
 * **Protocolo de Resiliencia:** Si la App 2 (Telemetry) no está, la creación de perfil no se reporta a La Central, pero el usuario se crea exitosamente en la base de datos local.
 
+Requerimientos operativos adicionales (core-level):
+
+- **`get_display_name` y `profile_id` en selectors:** Los `selectors` expuestos por `profiles` deben garantizar que `get_display_name(user_id, tenant_id)` retorna además `profile_id` (UUID) y `display_name`. Esto facilita traza y correlación en Telemetry y en Outbox payloads.
+- **Contexto para Telemetry:** `ProfilesService.get_active_context` debe añadir un `telemetry_identity` que incluya `user_id`, `profile_id` y `tenant_slug` para que eventos emitidos por otras apps (orders, payments, orchestrator) puedan correlacionarse con un sujeto humano identificable sin exponer PII.
+
 ## 7. Instrucción de Codificación para la IA (System Prompt)
 
 Cuando pidas a la IA generar esta aplicación, usa este prompt:

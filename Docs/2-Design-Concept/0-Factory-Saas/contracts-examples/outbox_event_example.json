@@ -1,0 +1,16 @@
+{
+  "id": "outbox-0001",
+  "aggregate_id": "order-uuid-222",
+  "event_type": "provision.requested",
+  "payload": {
+    "order_id": "order-uuid-222",
+    "tenant_id": "tenant-uuid-1",
+    "operation_id": "op-20260315-0001",
+    "items": [
+      {"product_id":"prod-uuid-a","product_type":"subscription","price_snapshot_id":"ps-0001"}
+    ]
+  },
+  "status": "pending",
+  "retry_count": 0,
+  "created_at": "2026-03-15T12:35:00Z"
+}

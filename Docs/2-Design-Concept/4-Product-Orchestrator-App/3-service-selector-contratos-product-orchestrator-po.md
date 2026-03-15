@@ -69,6 +69,26 @@ AuthorizationResultDTO = {
     "remaining_quota": int | None,
     "expires_at": str | None,
 }
+
+PlanEntitlementsDTO = {
+    "tenant_id": "UUID",
+    "plan_id": "UUID",
+    "matrix_version": "str",
+    "allowed_products": [
+        {
+            "product_id": "UUID",
+            "allowed_verticals": ["feature_key", "feature_key"]
+        }
+    ]
+}
+
+EnforcementResultDTO = {
+    "allowed": bool,
+    "reason": str | None,
+    "matrix_version": str | None,
+    "checked_at": str,  # ISO8601
+    "audit_ref": "UUID"  # referencia al Telemetry/AuditLog
+}
 ```
 
 ---

@@ -165,6 +165,22 @@ Fallback adicional por dependencias suaves internas:
 
 **Consumidores:** `orders` (líneas de pedido), `marketing` (catálogo en campañas).
 
+Nota: los DTOs retornados por `get_product_detail` / `ProductDetail` incluyen campos adicionales usados por consumidores: `product_type` (ej. `subscription|one_time|metered`) y `fulfillment_strategy` (ej. `digital|manual|third_party`). Estos campos deben respetarse por `orders` y `payments` al crear `order_line` y al calcular `price_snapshot`.
+
+## 2.9. Plan enforcement (cross-app)
+
+Para proteger el acceso a capacidades comercializadas a través de planes, se define un contrato de enforcement:
+
+- `get_plan_entitlements(tenant_id: int) -> PlanEntitlementsDTO`: Selector que devuelve los `product_id` y `feature_key` permitidos para un tenant, basado en la `PlanMatrix` vigente.
+- `enforce_plan_policy(tenant_id: int, product_id: int, vertical_key: str) -> EnforcementResultDTO`: Servicio que valida elegibilidad y retorna `allowed|denied` y `reason`.
+
+Uso:
+- Todas las apps que invoquen `authorize_feature` o `provision_tenant` deben llamar internamente a `enforce_plan_policy`.
+- `enforce_plan_policy` debe consultar `get_active_subscription` de `payments` y la versión de la `PlanMatrix` para garantizar trazabilidad.
+
+Evidencia:
+- Emisión de `TelemetryEvent` para cada decisión de enforcement con `tenant_id, plan_id, product_id, vertical_key, result, matrix_version`.
+
 ---
 
 ## 3. Reglas de Uso de Contratos

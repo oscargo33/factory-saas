@@ -140,6 +140,8 @@ Todas las entidades a continuación viven en el esquema del tenant y son complet
 | `currency` | CharField(3) | ISO 4217 (ej. `MXN`, `USD`) |
 | `is_active` | BooleanField | Visible en catálogo |
 | `metadata` | JSONB | Atributos adicionales variables |
+| `product_type` | CharField(30) | Modalidad comercial: `subscription`, `one_time`, `metered` |
+| `fulfillment_strategy` | CharField(30) | Estrategia de entrega: `digital`, `manual`, `third_party` |
 
 ### 4.5. `Vertical` (App: `product_orchestrator`)
 
@@ -171,6 +173,52 @@ Todas las entidades a continuación viven en el esquema del tenant y son complet
 | `quota_reset_at` | DateTimeField | Próximo reset de cuota |
 | `created_at` | DateTimeField | Fecha de creación |
 | `updated_at` | DateTimeField | Última modificación |
+
+---
+
+### 4.7. `PlanMatrix` (Cross-app)
+
+| Campo | Tipo | Descripción |
+|---|---|---|
+| `id` | UUID PK | Identificador de la matriz de planes |
+| `version` | CharField | Versión inmutable de la matriz |
+| `plan_id` | UUID | Identificador del plan |
+| `allowed_products` | JSONB | Lista de `product_id` permitidos para el plan |
+| `allowed_verticals` | JSONB | Mapa `product_id -> [feature_key]` |
+| `effective_from` | DateTimeField | Desde cuando aplica la versión |
+| `effective_to` | DateTimeField nullable | Hasta cuando aplica (nullable) |
+| `created_at` | DateTimeField | Fecha de creación |
+| `created_by` | CharField | Autor/owner del cambio |
+
+---
+
+### 4.8. `PriceSnapshot` (Cross-app)
+
+| Campo | Tipo | Descripción |
+|---|---|---|
+| `id` | UUID PK | Identificador unico |
+| `order_line_id` | UUID | Referencia logica a la linea del pedido |
+| `product_id` | UUID | Producto cobrado |
+| `price` | Decimal(10,2) | Precio capturado al checkout |
+| `currency` | CharField(3) | Moneda usada |
+| `price_version_id` | CharField | Version de price catalog usada |
+| `applied_taxes` | JSONB | Impuestos aplicados en el snapshot |
+| `captured_at` | DateTimeField | Timestamp de captura |
+
+---
+
+### 4.9. `OutboxEvent` (Cross-app reliability)
+
+| Campo | Tipo | Descripción |
+|---|---|---|
+| `id` | UUID PK | Identificador unico (operation_id recomendado) |
+| `aggregate_id` | UUID | Entidad afectada (order, entitlement, etc.) |
+| `event_type` | CharField | Tipo de evento (`plan.change.requested`, `provision.requested`, ...) |
+| `payload` | JSONB | Evento serializado |
+| `status` | CharField | `pending|sent|failed` |
+| `retry_count` | Integer | Numero de reintentos |
+| `created_at` | DateTimeField | Fecha de creacion |
+| `sent_at` | DateTimeField nullable | Fecha de envio exitoso |
 
 ---
 

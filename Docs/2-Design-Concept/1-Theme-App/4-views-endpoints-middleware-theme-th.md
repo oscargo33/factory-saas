@@ -1,7 +1,7 @@
 # Documento: Middleware, Views y Endpoints — App Theme
 
 **ID:** TH-4-API
-**Ubicación:** `./Docs/2-Design-Concept/1-Theme-App/4-views-endpoints-middleware-theme-fs.md`
+**Ubicación:** `./Docs/2-Design-Concept/1-Theme-App/4-views-endpoints-middleware-theme-th.md`
 **Anchor Doc:** `Docs/1-Core_Concept/1-theme-app-cc.md`
 **Dependencias Globales:** `DC-13`, `DC-14`
 

@@ -1,7 +1,7 @@
 # Documento: Modelos de Datos — App Theme
 
 **ID:** TH-2-MDL
-**Ubicación:** `./Docs/2-Design-Concept/1-Theme-App/2-modelos-theme-fs.md`
+**Ubicación:** `./Docs/2-Design-Concept/1-Theme-App/2-modelos-theme-th.md`
 **Anchor Doc:** `Docs/1-Core_Concept/1-theme-app-cc.md`
 **Dependencias Globales:** `DC-9`, `DC-13`, `DC-17`
 

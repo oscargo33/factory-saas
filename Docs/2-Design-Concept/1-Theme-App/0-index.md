@@ -20,10 +20,10 @@ Este paquete define el diseño funcional de la App Theme como base visual e i18n
 |---|---|---|---|
 | 0 | `0-index.md` | TH-0-INDEX | Índice y trazabilidad |
 | 1 | `1-checklist-theme-app.md` | TH-1-CK | Control de avance del diseño |
-| 2 | `2-modelos-theme-fs.md` | TH-2-MDL | Diseño de entidades (Glossary, ThemeConfig) |
-| 3 | `3-service-selector-contratos-theme-fs.md` | TH-3-SVC | Service/Selector y contratos inter-app |
-| 4 | `4-views-endpoints-middleware-theme-fs.md` | TH-4-API | Middleware, context processor y endpoints internos |
-| 5 | `5-componentes-cotton-pipeline-theme-fs.md` | TH-5-UI | Sistema visual: Cotton, Tailwind y Alpine |
+| 2 | `2-modelos-theme-th.md` | TH-2-MDL | Diseño de entidades (Glossary, ThemeConfig) |
+| 3 | `3-service-selector-contratos-theme-th.md` | TH-3-SVC | Service/Selector y contratos inter-app |
+| 4 | `4-views-endpoints-middleware-theme-th.md` | TH-4-API | Middleware, context processor y endpoints internos |
+| 5 | `5-componentes-cotton-pipeline-theme-th.md` | TH-5-UI | Sistema visual: Cotton, Tailwind y Alpine |
 
 ---
 

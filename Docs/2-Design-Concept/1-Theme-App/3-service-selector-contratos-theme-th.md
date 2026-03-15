@@ -1,7 +1,7 @@
 # Documento: Service, Selector y Contratos — App Theme
 
 **ID:** TH-3-SVC
-**Ubicación:** `./Docs/2-Design-Concept/1-Theme-App/3-service-selector-contratos-theme-fs.md`
+**Ubicación:** `./Docs/2-Design-Concept/1-Theme-App/3-service-selector-contratos-theme-th.md`
 **Anchor Doc:** `Docs/1-Core_Concept/1-theme-app-cc.md`
 **Dependencias Globales:** `DC-12`, `DC-16`
 

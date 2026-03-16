@@ -192,6 +192,8 @@ Evidencia:
 | **Importación tardía** | Usar importaciones dentro de la función, no a nivel de módulo, para evitar circular imports |
 | **No cachear objetos de otra app** | No guardar instancias de modelos de otras apps en memoria por periodos largos |
 
+| **Outbox / Idempotencia estándar** | Todos los `OutboxEvent` consumidos por apps deben llevar en su `payload` un `operation_id` (UUID) y un `idempotency_key` cuando aplique; los consumidores deben ser idempotentes por `operation_id`. Ver DC-17 para recomendaciones de constraints e índice único. |
+
 ---
 
 ## 4. Patrón de Importación Segura

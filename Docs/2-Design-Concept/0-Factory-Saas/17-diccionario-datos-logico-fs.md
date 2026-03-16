@@ -220,6 +220,17 @@ Todas las entidades a continuación viven en el esquema del tenant y son complet
 | `created_at` | DateTimeField | Fecha de creacion |
 | `sent_at` | DateTimeField nullable | Fecha de envio exitoso |
 
+### 4.9.1. Recomendaciones operativas y constraints
+
+- `payload` should include a top-level `operation_id` (UUID) used for cross-service idempotency and tracing. When a domain operation originates an OutboxEvent, that same `operation_id` must be persisted in the source tables (e.g., `PaymentIntent.operation_id`, `Order.operation_id`).
+- Recommended DB constraints / indexes:
+	- Unique index on `(tenant_id, operation_id)` for operations tables where applicable (e.g., `payment_intent`, `order_operations`).
+	- Unique index on `(tenant_id, event_type, payload->>'operation_id')` for `outbox_events` to avoid duplicate event emission for the same logical operation.
+	- Consider a small `idempotency` table: `(tenant_id, operation_id, result_payload, created_at, ttl)` to store the result of long-running operations and return cached responses on duplicate requests.
+- `OutboxEvent.payload` SHOULD include `idempotency_key` when the producer expects consumer-side deduplication beyond `operation_id` (e.g., provider webhooks).
+- All consumers MUST deduplicate by `operation_id` and emit `TelemetryEvent` on duplicate-detection with metric `idempotency.duplicate_detected_total`.
+
+
 ---
 
 ### 4.7. `Order` (App: `orders`)

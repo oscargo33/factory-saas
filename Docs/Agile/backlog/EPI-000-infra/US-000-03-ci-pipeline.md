@@ -1,7 +1,7 @@
 # US-000-03 — CI Pipeline (pytest + linting)
 
 **Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
+**Última actualización:** 2026-03-17
 
 **ID:** US-000-03
 **Epic:** [EPI-000 — Core Infra](epic.md)
@@ -23,7 +23,7 @@
 
 - [ ] CI se dispara en cada `push` a `main` y en cada PR
 - [ ] Pasos: `black --check`, `flake8`, `pytest --tb=short`
-- [ ] Si cambia `Docs/`, el pipeline valida `make docs-check` y falla si `Docs/REGISTRO-ULTIMA-VERSION.md` o las cabeceras quedan desalineadas
+- [ ] Si cambia `Docs/`, el pipeline valida consistencia mínima de cabeceras documentales sin depender de registro maestro consolidado
 - [ ] El pipeline falla si alguno de los pasos falla
 - [ ] Tiempo total de CI < 3 minutos en repositorio base
 - [ ] Badge de estado en `README.md`
@@ -37,8 +37,8 @@
 - [ ] **TASK-03** (0.5h) `@infra` — Crear `pytest.ini` con `[pytest] python_files = test_*.py, testpaths = tests, addopts = -v --tb=short`
 - [ ] **TASK-04** (0.5h) `@backend` — Crear `tests/__init__.py` y `tests/test_smoke.py` con un test `test_django_check` que corre `call_command("check")` y no lanza excepciones
 - [ ] **TASK-05** (0.5h) `@docs` — Agregar badge CI en `README.md` raíz: `![CI](https://github.com/ORG/REPO/actions/workflows/ci.yml/badge.svg)`
-- [ ] **TASK-06** (0.5h) `@docs` — Integrar `scripts/docs/sync_docs_versioning.py` en `Makefile` con `docs-sync` y `docs-check`
-- [ ] **TASK-07** (0.5h) `@docs` — Crear workflow dedicado `.github/workflows/docs-governance.yml` para validar versionado y registro maestro de `Docs/`
+- [ ] **TASK-06** (0.5h) `@docs` — Definir validación liviana de cabeceras documentales en fase de documentación
+- [ ] **TASK-07** (0.5h) `@docs` — Crear workflow dedicado de gobernanza documental sin dependencia a registro maestro consolidado
 
 ---
 
@@ -47,6 +47,6 @@
 - [ ] CI verde en PR de prueba
 - [ ] `pytest tests/test_smoke.py` pasa localmente
 - [ ] Black y flake8 no reportan errores en el codebase
-- [ ] `make docs-check` pasa sin diff pendiente en `Docs/`
+- [ ] Validación documental definida para fase activa y ejecutada sin errores
 - [ ] README actualizado con badge
 - [ ] PR revisado y aprobado

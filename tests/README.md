@@ -2,12 +2,16 @@ Contract tests for Factory-SaaS
 
 Run these checks locally to validate contract fixtures and basic schema invariants.
 
-Setup (recommended in virtualenv):
+Current phase note:
+
+This repository is in Agile documentation phase. The contract tests remain as reference artifacts, and local execution setup will be formalized when implementation bootstrap is activated.
+
+When implementation bootstrap is enabled, run:
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-pip install -r requirements-dev.txt
+pip install pytest
 pytest -q tests/contracts
 ```
 

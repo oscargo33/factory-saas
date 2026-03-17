@@ -7,4 +7,3 @@ Este directorio mantiene la estructura Scrum activa en:
 
 Los archivos legacy de Agile raiz fueron archivados para evitar confusion en:
 
-- _legacy/2026-03-17/

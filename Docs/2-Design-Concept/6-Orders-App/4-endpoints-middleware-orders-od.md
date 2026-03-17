@@ -1,5 +1,8 @@
 # Endpoints, Middleware y Webhooks — Orders
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 **ID:** OD-4-ENDPOINTS
 
 Endpoints sugeridos:

@@ -1,5 +1,8 @@
 # Validación — Home App
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 **ID:** HM-8-VAL
 
 Checklist de validación en Diseño Conceptual:

@@ -1,5 +1,8 @@
 # Fallbacks y Trazabilidad — Support App
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 Fallbacks:
 - If external enrichment fails (e.g., order service down), persist ticket with `enrichment_status=deferred` and schedule retry via Outbox/Retry queue.
 

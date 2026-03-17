@@ -1,5 +1,8 @@
 # Modelos de Datos — App Orders
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 **ID:** OD-2-MDL
 
 Propósito: definir `Cart`, `Order`, `OrderLine` y artefactos auxiliares (PriceSnapshot) con exigencias operativas.

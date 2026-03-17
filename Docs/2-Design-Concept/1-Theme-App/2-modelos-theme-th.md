@@ -1,5 +1,8 @@
 # Documento: Modelos de Datos — App Theme
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 **ID:** TH-2-MDL
 **Ubicación:** `./Docs/2-Design-Concept/1-Theme-App/2-modelos-theme-th.md`
 **Anchor Doc:** `Docs/1-Core_Concept/1-theme-app-cc.md`

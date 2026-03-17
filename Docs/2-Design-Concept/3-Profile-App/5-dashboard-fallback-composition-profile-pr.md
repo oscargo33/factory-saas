@@ -1,5 +1,8 @@
 # Documento: Dashboard, Composicion y Fallback - App Profile
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 **ID:** PR-5-UI
 **Ubicacion:** `./Docs/2-Design-Concept/3-Profile-App/5-dashboard-fallback-composition-profile-pr.md`
 **Anchor Docs:** `Docs/1-Core_Concept/3-profile-app-cc.md`, `Docs/2-Design-Concept/0-Factory-Saas/14-pipeline-tailwind-cotton-fs.md`

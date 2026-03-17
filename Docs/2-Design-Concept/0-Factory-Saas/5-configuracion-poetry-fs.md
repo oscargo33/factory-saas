@@ -10,6 +10,9 @@ Siguiendo tu numeración, aquí tienes la propuesta para el archivo 5:
 
 # Documento: 5-Configuracion-Poetry-fs.md
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 **ID:** DC-5-FS
 
 **Ubicación:** `./Docs/2-Design-Concept/0-Factory-Saas/5-configuracion-poetry-fs.md`

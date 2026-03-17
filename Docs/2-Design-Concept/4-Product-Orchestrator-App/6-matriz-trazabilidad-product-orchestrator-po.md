@@ -1,5 +1,8 @@
 # Documento: Matriz de Trazabilidad - App Product Orchestrator
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 **ID:** PO-6-TRA
 **Ubicacion:** `./Docs/2-Design-Concept/4-Product-Orchestrator-App/6-matriz-trazabilidad-product-orchestrator-po.md`
 **Anchor Docs:** `Docs/1-Core_Concept/4-product-orchestrator-app-cc.md`, `Docs/2-Design-Concept/0-Factory-Saas/13-router-dinamico-esquemas-fs.md`
@@ -37,6 +40,13 @@ Asegurar trazabilidad entre requerimientos de orquestacion funcional y artefacto
 
 ## 3. Criterios de aceptacion
 
-- [ ] PO-R01..PO-R13 trazados a artefactos concretos.
+- [ ] PO-R01..PO-R16 trazados a artefactos concretos.
 - [ ] Evidencia de cada requerimiento definida para Sprint Review.
 - [ ] Sin huecos entre Core y Design.
+
+## 4. Cobertura obligatoria DC-12/DC-13/DC-16/DC-17
+
+- DC-12 (patron service layer): cubierto en `3-service-selector-contratos-product-orchestrator-po.md`.
+- DC-13 (router dinamico y contexto tenant): cubierto en endpoints/adapters con tenant context obligatorio.
+- DC-16 (contratos inter-app): cubierto por contratos de autorizacion/provision y eventos `provision.requested`.
+- DC-17 (diccionario de datos logico): cubierto por entidades `Product`, `Vertical`, `Entitlement`, `PlanMatrix` y snapshots de pricing.

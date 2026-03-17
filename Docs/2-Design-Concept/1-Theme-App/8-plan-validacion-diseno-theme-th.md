@@ -1,5 +1,8 @@
 # Documento: Plan de Validacion de Diseno - App Theme
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 **ID:** TH-8-VAL
 **Ubicación:** `./Docs/2-Design-Concept/1-Theme-App/8-plan-validacion-diseno-theme-th.md`
 **Anchor Docs:** `Docs/2-Design-Concept/1-Theme-App/1-checklist-theme-app.md`, `Docs/2-Design-Concept/1-Theme-App/6-matriz-trazabilidad-theme-th.md`

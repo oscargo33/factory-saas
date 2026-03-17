@@ -4,6 +4,9 @@ Este es el **Documento Maestro 9: App Home (La Vitrina y el SEO Final)**. Cerram
 
 # Documento Maestro 9: App Home (Capa de Superficie)
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 ## 1. Identidad de la Aplicación
 
 * **Nivel de Profundidad:** 9 (Capa Externa / Fachada).

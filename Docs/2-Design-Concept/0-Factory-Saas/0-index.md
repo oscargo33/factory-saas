@@ -1,10 +1,14 @@
 
 # Índice de Documentos de Diseño Global — Factory-SaaS
 
+**Versión del documento:** 2.0
+**Última actualización:** 2026-03-16
+
+**Estado documental:** Fase 1 Global Design completada
+
 **ID:** DC-0-INDEX
 **Ubicación:** `./Docs/2-Design-Concept/0-Factory-Saas/0-index.md`
 **Referencia Core:** `0-factory_saas-cc.md`
-**Versión:** 2.0 — Fase 1 Global Design completada
 **Apellido de Trazabilidad:** **-fs**
 
 ---
@@ -76,13 +80,30 @@ Este índice lista todos los documentos de diseño de la infraestructura global 
 | — | `17-diccionario-datos-logico-fs.md` | DC-17-FS | ✅ Aprobado |
 | — | `18-matriz-seguridad-compliance-fs.md` | DC-18-FS | ✅ Aprobado |
 
+## Transversal: Producto Visible (UX/UI)
+
+| # | Documento | ID | Estado |
+|---|---|---|---|
+| — | `21-product-visible-ux-fs.md` | DC-21-FS | ✅ Activo |
+| — | `22-roles-permisos-capas-ux-fs.md` | DC-22-FS | ✅ Activo |
+
+## Transversal: Assets Criticos Faltantes (Fase 1C)
+
+| # | Documento | ID | Estado |
+|---|---|---|---|
+| — | `23-estrategia-migraciones-db-fs.md` | DC-23-FS | ✅ Aprobado |
+| — | `24-sistema-notificaciones-fs.md` | DC-24-FS | ✅ Aprobado |
+| — | `25-flujo-onboarding-e2e-fs.md` | DC-25-FS | ✅ Aprobado |
+| — | `26-estrategia-testing-fs.md` | DC-26-FS | ✅ Aprobado |
+| — | `27-estrategia-ambientes-fs.md` | DC-27-FS | ✅ Aprobado |
+
 ---
 
 ## Estado de la Fase 1 — Diseño Global
 
-**Total documentos:** 18 (+ este índice = 19 archivos)
-**Completos:** 18 / 18
-**Estado:** ✅ FASE 1 DISEÑO GLOBAL CERRADA
+**Total documentos:** 27 (+ este índice = 28 archivos)
+**Completos:** 27 / 27
+**Estado:** ✅ FASE 1 DISEÑO GLOBAL + FASE 1B PRODUCTO VISIBLE + RBAC/CAPAS + FASE 1C ASSETS CRITICOS — COMPLETA
 
 ---
 

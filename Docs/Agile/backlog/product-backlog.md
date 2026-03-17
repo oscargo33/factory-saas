@@ -1,7 +1,7 @@
 # Product Backlog — Factory SaaS
 
 **Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
+**Última actualización:** 2026-03-17
 
 **Regla de lectura:** Backlog ordenado por prioridad de entrega. Cada Epic agrupa sus User Stories con SP y sprint asignado. La columna "Archivo US" linkea al documento con las tasks atómicas.
 
@@ -17,13 +17,13 @@
 
 | # | US ID | Historia | SP | Sprint | Estado | Archivo |
 |---|---|---|---|---|---|---|
-| 1 | US-CORE-01 | Estructura `apps/` + `factory_saas/settings/` + `urls.py` raíz | 2 | Sprint-0 | 🔲 Sin US file | — |
-| 2 | US-CORE-02 | `apps/core/models.py`: Tenant, Membership + migración `public` | 3 | Sprint-0 | 🔲 Sin US file | — |
-| 3 | US-CORE-03 | `apps/core/exceptions.py`: jerarquía FactoryBaseException | 1 | Sprint-0 | 🔲 Sin US file | — |
-| 4 | US-CORE-04 | `apps/core/middleware.py`: TenantMiddleware + TenantSchemaRouter | 3 | Sprint-0 | 🔲 Sin US file | — |
-| 5 | US-CORE-05 | `apps/core/selectors.py`: get_tenant_by_slug, get_active_memberships | 2 | Sprint-0 | 🔲 Sin US file | — |
-| 6 | US-CORE-06 | `factory_saas/theme_defaults.py` + `templates/fallback_layout.html` | 1 | Sprint-0 | 🔲 Sin US file | — |
-| 7 | US-CORE-07 | `apps/core/services.py`: create_tenant, deactivate_tenant + tests aislamiento | 3 | Sprint-0 | 🔲 Sin US file | — |
+| 1 | US-CORE-01 | Estructura `apps/` + `factory_saas/settings/` + `urls.py` raíz | 2 | Sprint-0 | Planned | [US-CORE-01](EPI-CORE-factory/US-CORE-01-project-skeleton.md) |
+| 2 | US-CORE-02 | `apps/core/models.py`: Tenant, Membership + migración `public` | 3 | Sprint-0 | Planned | [US-CORE-02](EPI-CORE-factory/US-CORE-02-core-models-public.md) |
+| 3 | US-CORE-03 | `apps/core/exceptions.py`: jerarquía FactoryBaseException | 1 | Sprint-0 | Planned | [US-CORE-03](EPI-CORE-factory/US-CORE-03-core-exceptions.md) |
+| 4 | US-CORE-04 | `apps/core/middleware.py`: TenantMiddleware + TenantSchemaRouter | 3 | Sprint-0 | Planned | [US-CORE-04](EPI-CORE-factory/US-CORE-04-tenant-middleware-router.md) |
+| 5 | US-CORE-05 | `apps/core/selectors.py`: get_tenant_by_slug, get_active_memberships | 2 | Sprint-0 | Planned | [US-CORE-05](EPI-CORE-factory/US-CORE-05-core-selectors.md) |
+| 6 | US-CORE-06 | `factory_saas/theme_defaults.py` + `templates/fallback_layout.html` | 1 | Sprint-0 | Planned | [US-CORE-06](EPI-CORE-factory/US-CORE-06-theme-defaults-fallback-layout.md) |
+| 7 | US-CORE-07 | `apps/core/services.py`: create_tenant, deactivate_tenant + tests aislamiento | 3 | Sprint-0 | Planned | [US-CORE-07](EPI-CORE-factory/US-CORE-07-core-services-isolation-tests.md) |
 
 ---
 

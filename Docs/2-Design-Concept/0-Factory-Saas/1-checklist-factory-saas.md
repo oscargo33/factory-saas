@@ -1,8 +1,5 @@
 # Documento: Checklist de Control de Implementación (Factory-SaaS)
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** CK-01-FS
 
 **Ubicación:** `./Docs/2-Design-Concept/0-Factory-Saas/1-checklist-factory-saas.md`

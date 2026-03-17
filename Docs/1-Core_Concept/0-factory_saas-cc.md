@@ -1,8 +1,5 @@
 # Documento Maestro 0: El Plano de Ingeniería (Infraestructura)
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **Core:** Django 5.1+ | PostgreSQL 16 (Esquemas) | Redis 7.2 | Docker Compose.
 **Regla de Oro:** **Degradación Graciosa.** Si la App *X* no está, la App *Y* debe seguir funcionando con un valor neutro.
 
@@ -235,3 +232,4 @@ flowchart LR
 | R-06 | Sobrecarga de complejidad temprana | Delivery | Medio | Alta | Entregas por fase Scrum y app boundaries |
 | R-07 | Dependencia excesiva de proveedor de pago | Negocio | Medio | Media | Provider pattern multicasarela |
 | R-08 | Alucinaciones/errores en soporte IA | Producto | Medio | Media | RAG + escalamiento obligatorio a humano |
+

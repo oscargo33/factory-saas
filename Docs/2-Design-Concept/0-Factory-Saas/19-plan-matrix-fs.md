@@ -1,8 +1,5 @@
 # Documento: PlanMatrix Governance
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** DC-19-PLANMATRIX
 **Ubicacion:** `./Docs/2-Design-Concept/0-Factory-Saas/19-plan-matrix-fs.md`
 **Capa:** Transversal — Gobernanza de políticas comerciales

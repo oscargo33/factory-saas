@@ -1,8 +1,5 @@
 # Checklist de Diseno - App 3 Profile
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** PR-1-CK
 **Ubicacion:** `./Docs/2-Design-Concept/3-Profile-App/1-checklist-profile-app.md`
 **Anchor Doc:** `Docs/1-Core_Concept/3-profile-app-cc.md`

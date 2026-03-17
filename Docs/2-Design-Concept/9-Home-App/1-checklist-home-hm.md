@@ -1,8 +1,5 @@
 # Checklist — Home App
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** HM-1-CHK
 
 Checklist mínima para Diseño Conceptual (0..8):

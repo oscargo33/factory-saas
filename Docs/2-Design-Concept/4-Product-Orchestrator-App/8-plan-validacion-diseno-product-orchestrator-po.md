@@ -1,8 +1,5 @@
 # Documento: Plan de Validacion de Diseno - App Product Orchestrator
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** PO-8-VAL
 **Ubicacion:** `./Docs/2-Design-Concept/4-Product-Orchestrator-App/8-plan-validacion-diseno-product-orchestrator-po.md`
 **Anchor Docs:** `Docs/2-Design-Concept/4-Product-Orchestrator-App/1-checklist-product-orchestrator-app.md`, `Docs/2-Design-Concept/4-Product-Orchestrator-App/6-matriz-trazabilidad-product-orchestrator-po.md`

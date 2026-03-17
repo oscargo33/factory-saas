@@ -1,8 +1,5 @@
 # Documento: App 7 — Payments
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** PY-0-INDEX
 **Ubicación:** `./Docs/2-Design-Concept/7-Payment-App/`
 **Anchor Docs:** `Docs/1-Core_Concept/7-payment-app-cc.md`, `Docs/2-Design-Concept/0-Factory-Saas/16-contratos-inter-app-fs.md`
@@ -21,5 +18,3 @@ Archivos en este paquete:
 - `8-plan-validacion-diseno-payments-py.md`
 - `9-contract-tests-skeleton-payments-py.md`
 - `10-analysis-improvements-payments-py.md`
-- `11-product-visible-admin-payments-py.md`
-- `12-roles-permisos-capas-payments-py.md`

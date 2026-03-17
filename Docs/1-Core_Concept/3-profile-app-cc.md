@@ -4,9 +4,6 @@ Este es el **Documento Maestro 3: App Profiles (Gestión de Identidad y Tenancy)
 
 # Documento Maestro 3: App Profiles (Identidad y Tenancy)
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 ## 1. Identidad de la Aplicación
 
 * **Nivel de Profundidad:** 3 (Capa de Contexto).
@@ -120,3 +117,4 @@ La App Profiles es el "corazón operativo". Puede funcionar perfectamente solo c
 |---|---|---|
 | R-01 | Otras apps importan modelos User/Tenant directamente | Solo acceso via `ProfilesService` / `ProfilesSelector` |
 | R-05 | Fuga de datos entre tenants | Aislamiento por esquema PostgreSQL + middleware router de esquemas |
+

@@ -1,8 +1,5 @@
 # Documento: 12-patron-service-layer-fs.md
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** DC-12-FS
 **Ubicación:** `./Docs/2-Design-Concept/0-Factory-Saas/12-patron-service-layer-fs.md`
 **Referencia Core:** `0-factory_saas-cc.md`, `design-layers-kb.md`

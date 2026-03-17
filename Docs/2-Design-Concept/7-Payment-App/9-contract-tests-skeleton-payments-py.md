@@ -1,8 +1,5 @@
 # Payments — Contract Tests Skeleton
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 Propósito: casos mínimos para validar `start_session`, `handle_webhook`, Outbox and reconciliation.
 
 Archivos referenciados (fixtures):
@@ -22,8 +19,3 @@ Casos sugeridos:
    - Simulate provider transactions missing locally -> reconcile marks differences and creates tickets.
 
 Notas: implementar pytest fixtures that mock gateways (stripe/paypal) and use DB test harness.
-
-Acceptance criteria reproducibles:
-- [ ] Cada caso define input fixture y output esperado verificable.
-- [ ] Los flujos de webhook validan idempotencia por `operation_id`.
-- [ ] Los casos de reconciliacion incluyen evidencia de decision sobre diferencias detectadas.

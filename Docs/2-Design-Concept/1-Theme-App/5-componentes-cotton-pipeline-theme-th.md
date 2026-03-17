@@ -1,8 +1,5 @@
 # Documento: Componentes Cotton y Pipeline Visual — App Theme
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** TH-5-UI
 **Ubicación:** `./Docs/2-Design-Concept/1-Theme-App/5-componentes-cotton-pipeline-theme-th.md`
 **Anchor Docs:** `Docs/1-Core_Concept/1-theme-app-cc.md`, `Docs/2-Design-Concept/0-Factory-Saas/14-pipeline-tailwind-cotton-fs.md`

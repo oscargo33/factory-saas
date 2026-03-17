@@ -1,8 +1,5 @@
 # Plan de Validación y Criterios — Orders
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** OD-8-VALID
 
 Criterios de aceptación (mínimos):

@@ -1,8 +1,5 @@
 # Service / Selector & Contratos — App Support
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 Propósito: definir las interfaces públicas que el Support App expone y los contratos que otros servicios pueden llamar.
 
 API públicas (contratos):

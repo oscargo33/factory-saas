@@ -6,9 +6,6 @@ Aquí tienes la versión extendida y rigurosa del diseño de orquestación.
 
 # Documento: 7-docker-compose-specs-fs.md (Versión Detallada)
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** DC-7-FS
 
 **Ubicación:** `./Docs/2-Design-Concept/0-Factory-Saas/7-docker-compose-specs-fs.md`

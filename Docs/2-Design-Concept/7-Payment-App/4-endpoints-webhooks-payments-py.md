@@ -1,8 +1,5 @@
 # Endpoints y Webhooks — Payments
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** PY-4-ENDPOINTS
 
 Endpoints principales:

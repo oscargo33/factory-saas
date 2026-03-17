@@ -1,8 +1,5 @@
 # Documento: 13-router-dinamico-esquemas-fs.md
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** DC-13-FS
 **Ubicación:** `./Docs/2-Design-Concept/0-Factory-Saas/13-router-dinamico-esquemas-fs.md`
 **Referencia Core:** `0-factory_saas-cc.md`

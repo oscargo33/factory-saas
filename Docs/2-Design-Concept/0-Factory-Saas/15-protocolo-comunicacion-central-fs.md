@@ -1,8 +1,5 @@
 # Documento: 15-protocolo-comunicacion-central-fs.md
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** DC-15-FS
 **Ubicación:** `./Docs/2-Design-Concept/0-Factory-Saas/15-protocolo-comunicacion-central-fs.md`
 **Referencia Core:** `0-factory_saas-cc.md`

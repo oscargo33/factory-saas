@@ -1,8 +1,5 @@
 # Documento: Plan de Validacion de Diseno - App Api Telemetry
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** AT-8-VAL
 **Ubicación:** `./Docs/2-Design-Concept/2-Api-Telemetry-App/8-plan-validacion-diseno-telemetry-at.md`
 **Anchor Docs:** `Docs/2-Design-Concept/2-Api-Telemetry-App/1-checklist-api-telemetry-app.md`, `Docs/2-Design-Concept/2-Api-Telemetry-App/6-matriz-trazabilidad-telemetry-at.md`

@@ -4,9 +4,6 @@ Este es el **Documento Maestro 4: App Product Orchestrator (El Puente al Product
 
 # Documento Maestro 4: App Product Orchestrator (Orquestación Funcional)
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 ## 1. Identidad de la Aplicación
 
 * **Nivel de Profundidad:** 4 (Capa de Adaptación).

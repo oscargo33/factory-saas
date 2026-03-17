@@ -1,8 +1,5 @@
 # Checklist — App Orders
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** OD-1-CHECK
 
 Checklist mínimo para entregar el paquete de diseño y pasar a implementación:

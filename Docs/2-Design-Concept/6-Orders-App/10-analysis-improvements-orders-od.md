@@ -1,8 +1,5 @@
 # Análisis profundo y mejoras aplicadas — Orders
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** OD-10-ANALYSIS
 
 Resumen de análisis y mejoras aplicadas en este diseño:

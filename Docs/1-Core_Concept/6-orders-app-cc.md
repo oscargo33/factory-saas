@@ -4,9 +4,6 @@ Este es el **Documento Maestro 6: App Orders (Gestión de Intención y Carrito)*
 
 # Documento Maestro 6: App Orders (Gestión de Intención)
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 ## 1. Identidad de la Aplicación
 
 * **Nivel de Profundidad:** 6 (Capa de Transacción).

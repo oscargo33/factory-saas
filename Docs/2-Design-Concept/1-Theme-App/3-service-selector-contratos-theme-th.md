@@ -1,8 +1,5 @@
 # Documento: Service, Selector y Contratos — App Theme
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** TH-3-SVC
 **Ubicación:** `./Docs/2-Design-Concept/1-Theme-App/3-service-selector-contratos-theme-th.md`
 **Anchor Doc:** `Docs/1-Core_Concept/1-theme-app-cc.md`

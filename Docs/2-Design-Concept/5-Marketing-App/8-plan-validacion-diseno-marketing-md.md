@@ -1,8 +1,5 @@
 # Plan de Validación y Criterios — Marketing
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** MA-8-VALID
 
 Criterios de aceptación para considerar la App `marketing` como diseño-completo y lista para implementación:

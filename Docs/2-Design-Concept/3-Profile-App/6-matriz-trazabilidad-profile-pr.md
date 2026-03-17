@@ -1,8 +1,5 @@
 # Documento: Matriz de Trazabilidad - App Profile
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** PR-6-TRA
 **Ubicacion:** `./Docs/2-Design-Concept/3-Profile-App/6-matriz-trazabilidad-profile-pr.md`
 **Anchor Docs:** `Docs/1-Core_Concept/3-profile-app-cc.md`, `Docs/2-Design-Concept/0-Factory-Saas/13-router-dinamico-esquemas-fs.md`
@@ -38,10 +35,3 @@ Asegurar trazabilidad entre requerimientos de identidad/tenancy y artefactos de 
 - [ ] PR-R01..PR-R11 trazados a artefactos concretos.
 - [ ] Evidencia de cada requerimiento definida para Sprint Review.
 - [ ] Sin huecos entre Core y Design.
-
-## 4. Cobertura obligatoria DC-12/DC-13/DC-16/DC-17
-
-- DC-12 (patron service layer): cubierto en `3-service-selector-contratos-profile-pr.md`.
-- DC-13 (router dinamico y contexto tenant): cubierto por `switch_tenant` y middleware de aislamiento.
-- DC-16 (contratos inter-app): cubierto por contratos para dashboard/composicion con apps consumidoras.
-- DC-17 (diccionario de datos logico): cubierto por entidades globales (`User`, `Tenant`, `Membership`) y `Profile` por schema tenant.

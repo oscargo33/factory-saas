@@ -1,8 +1,5 @@
 # Modelos de Datos — Home App
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** HM-2-MDL
 
 Propósito: entidades ligeras que sirven al dashboard y landing por tenant. Todas viven en esquema `tenant_{slug}` salvo cachés globales.

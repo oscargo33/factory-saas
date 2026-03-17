@@ -1,8 +1,5 @@
 # Documento: 18-matriz-seguridad-compliance-fs.md
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** DC-18-FS
 **Ubicación:** `./Docs/2-Design-Concept/0-Factory-Saas/18-matriz-seguridad-compliance-fs.md`
 **Referencia Core:** `0-factory_saas-cc.md`, `3-gestion-de-secretos-fs.md`

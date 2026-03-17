@@ -1,8 +1,5 @@
 # NFR — App Support
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** SP-7-NFR
 
 Non-functional requirements:

@@ -1,8 +1,5 @@
 # Order Lifecycle, Outbox and Fallbacks
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** OD-5-OPS
 
 Order lifecycle (resumen): Draft -> Pending -> Paid -> Processing -> Fulfilled/Completed -> Cancelled

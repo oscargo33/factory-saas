@@ -1,8 +1,5 @@
 # Modelos de Datos — App Support
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** SP-2-MDL
 
 Propósito: definir entidades de tickets, comentarios, SLA y automations para soporte.

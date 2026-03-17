@@ -1,8 +1,5 @@
 # Endpoints — Home App
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** HM-4-EP
 
 API internas/externas relevantes:

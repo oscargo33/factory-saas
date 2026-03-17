@@ -4,9 +4,6 @@ Este es el **Documento Maestro 8: App Support (Relación y Asistencia Agéntica)
 
 # Documento Maestro 8: App Support (Relación y Retención)
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 ## 1. Identidad de la Aplicación
 
 * **Nivel de Profundidad:** 8 (Capa de Relación).

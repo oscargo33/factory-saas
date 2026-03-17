@@ -1,8 +1,5 @@
 # Manual de Estilo de Código: Factory SaaS (IA-Ready)
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 Este manual define los estándares de codificación para garantizar que cada aplicación sea **autónoma, resiliente y modular**.
 
 ## 1. Estructura de Archivos Estándar por App
@@ -86,3 +83,4 @@ Antes de aceptar el código que la IA te entregue, verifica:
 * [ ] ¿Hay lógica de negocio en las `views.py`? (Si la hay, dile que la mueva a `services.py`).
 * [ ] ¿El componente Cotton usa variables CSS (`var(--...)`) para los colores?
 * [ ] ¿Existe un `fallback_layout.html` básico en la carpeta de templates?
+

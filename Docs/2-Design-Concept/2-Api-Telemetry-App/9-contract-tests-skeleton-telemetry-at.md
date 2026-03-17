@@ -1,8 +1,5 @@
 # Api Telemetry — Contract Tests Skeleton
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 Propósito: casos mínimos para validar Outbox processing y eventos de telemetría emitidos por flujos cross-app.
 
 Archivos de ejemplo referenciados:
@@ -24,8 +21,3 @@ Casos mínimos sugeridos:
    - Verificar que `outbox_pending_count` y `telemetry_push_success_total` se incrementen adecuadamente cuando se simulan fallos y recuperaciones.
 
 Notas: traducir estos skeletons a pruebas automatizadas que invoquen workers y endpoints con fixtures.
-
-Acceptance criteria reproducibles:
-- [ ] Cada caso define input fixture y output esperado verificable.
-- [ ] Los eventos incluyen correlacion minima (`tenant_id`, `operation_id`, `matrix_version`).
-- [ ] Se valida explícitamente que no exista PII en payloads de telemetria.

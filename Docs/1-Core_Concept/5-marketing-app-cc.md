@@ -4,9 +4,6 @@ Este es el **Documento Maestro 5: App Marketing (Estrategia y Descuentos)**. En 
 
 # Documento Maestro 5: App Marketing (Estrategia de Captación)
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 ## 1. Identidad de la Aplicación
 
 * **Nivel de Profundidad:** 5 (Capa de Estrategia).

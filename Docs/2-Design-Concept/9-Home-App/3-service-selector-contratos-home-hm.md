@@ -1,8 +1,5 @@
 # Contratos — Home App
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** HM-3-CT
 
 Objetivo: definir selectors y services que `Home` expone a otras apps y consumir.

@@ -1,8 +1,5 @@
 # Contract-tests Skeleton — Home App
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** HM-9-TESTS
 
 Propósito: casos mínimos para validar contratos expuestos por `Home`.
@@ -19,8 +16,3 @@ Propósito: casos mínimos para validar contratos expuestos por `Home`.
  - Simulate duplicate `operation_id` → single telemetry event recorded.
 
 Nota: implementar tests en `tests/contracts/` cuando entre en fase de verificación; por ahora son esqueletos para DoD.
-
-Acceptance criteria reproducibles:
-- [ ] Cada caso define input fixture y output esperado verificable.
-- [ ] Cada evento de interaccion mantiene correlacion con `tenant_id` y `operation_id`.
-- [ ] Ningun payload de snapshot o telemetria incluye PII en texto plano.

@@ -1,8 +1,5 @@
 # Modelos de Datos — App Marketing
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** MA-2-MDL
 
 Propósito: definir las entidades principales que Marketing gestiona (campañas, cupones, segmentos, plantillas) respetando aislamiento por tenant.

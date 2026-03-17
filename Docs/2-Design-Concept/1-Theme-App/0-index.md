@@ -1,14 +1,10 @@
 # Índice de Diseño App 1 — Theme
 
-**Versión del documento:** 1.0
-**Última actualización:** 2026-03-16
-
-**Estado documental:** Inicio de diseño individual
-
 **ID:** TH-0-INDEX
 **Ubicación:** `./Docs/2-Design-Concept/1-Theme-App/0-index.md`
 **Anchor Docs:** `Docs/1-Core_Concept/1-theme-app-cc.md`, `Docs/1-Core_Concept/0-factory_saas-cc.md`
 **Dependencia Global:** `Docs/2-Design-Concept/0-Factory-Saas/*`
+**Estado:** v1.0 — Inicio de diseño individual
 
 ---
 
@@ -37,8 +33,6 @@ Alcance obligatorio del paquete:
 | 6 | `6-matriz-trazabilidad-theme-th.md` | TH-6-TRA | Trazabilidad Core -> Design -> Evidencia |
 | 7 | `7-nfr-seguridad-operacion-theme-th.md` | TH-7-NFR | Requerimientos no funcionales, seguridad y operación |
 | 8 | `8-plan-validacion-diseno-theme-th.md` | TH-8-VAL | Plan de validación del diseño y evidencia de cierre |
-| 9 | `9-product-visible-admin-th.md` | TH-9-PV | Producto visible + CRUD admin por modelo |
-| 10 | `10-roles-permisos-capas-th.md` | TH-10-RBAC | Roles, permisos y capas de interfaz |
 
 ---
 

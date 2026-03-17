@@ -1,8 +1,5 @@
 # Documento: Service, Selector y Contratos - App Profile
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** PR-3-SVC
 **Ubicacion:** `./Docs/2-Design-Concept/3-Profile-App/3-service-selector-contratos-profile-pr.md`
 **Anchor Docs:** `Docs/1-Core_Concept/3-profile-app-cc.md`, `Docs/2-Design-Concept/0-Factory-Saas/12-patron-service-layer-fs.md`, `Docs/2-Design-Concept/0-Factory-Saas/16-contratos-inter-app-fs.md`

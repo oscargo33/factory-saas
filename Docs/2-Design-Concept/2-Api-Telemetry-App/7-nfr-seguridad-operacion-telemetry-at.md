@@ -1,8 +1,5 @@
 # Documento: NFR, Seguridad y Operación - App Api Telemetry
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** AT-7-NFR
 **Ubicación:** `./Docs/2-Design-Concept/2-Api-Telemetry-App/7-nfr-seguridad-operacion-telemetry-at.md`
 **Anchor Docs:** `Docs/2-Design-Concept/0-Factory-Saas/15-protocolo-comunicacion-central-fs.md`, `Docs/2-Design-Concept/0-Factory-Saas/18-matriz-seguridad-compliance-fs.md`

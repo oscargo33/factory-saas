@@ -1,8 +1,5 @@
 # Checklist de Entrega — Support App (paquete 0..8)
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 Items:
 - [x] `0-index.md` (creado)
 - [x] `1-checklist-support-app.md` (creado)

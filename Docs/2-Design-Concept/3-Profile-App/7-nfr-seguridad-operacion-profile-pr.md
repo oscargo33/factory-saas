@@ -1,8 +1,5 @@
 # Documento: NFR, Seguridad y Operacion - App Profile
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** PR-7-NFR
 **Ubicacion:** `./Docs/2-Design-Concept/3-Profile-App/7-nfr-seguridad-operacion-profile-pr.md`
 **Anchor Docs:** `Docs/2-Design-Concept/0-Factory-Saas/18-matriz-seguridad-compliance-fs.md`, `Docs/2-Design-Concept/0-Factory-Saas/13-router-dinamico-esquemas-fs.md`

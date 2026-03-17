@@ -1,8 +1,5 @@
 # Validación — App Support
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** SP-8-VAL
 
 Checklist de validación para la etapa de Diseño (DoR/DoD):

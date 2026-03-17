@@ -1,8 +1,5 @@
 # Documento: Service, Selector y Contratos - App Api Telemetry
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** AT-3-SVC
 **Ubicacion:** `./Docs/2-Design-Concept/2-Api-Telemetry-App/3-service-selector-contratos-telemetry-at.md`
 **Anchor Docs:** `Docs/1-Core_Concept/2-api-app-cc.md`, `Docs/2-Design-Concept/0-Factory-Saas/12-patron-service-layer-fs.md`

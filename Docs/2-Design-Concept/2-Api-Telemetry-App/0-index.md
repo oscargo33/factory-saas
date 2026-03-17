@@ -1,14 +1,10 @@
 # Indice de Diseno App 2 - Api Telemetry
 
-**Versión del documento:** 1.0
-**Última actualización:** 2026-03-16
-
-**Estado documental:** Inicio de diseno individual
-
 **ID:** AT-0-INDEX
 **Ubicacion:** `./Docs/2-Design-Concept/2-Api-Telemetry-App/0-index.md`
 **Anchor Docs:** `Docs/1-Core_Concept/2-api-app-cc.md`, `Docs/1-Core_Concept/0-factory_saas-cc.md`
 **Dependencia Global:** `Docs/2-Design-Concept/0-Factory-Saas/*`
+**Estado:** v1.0 - Inicio de diseno individual
 
 ---
 
@@ -36,8 +32,6 @@ Alcance obligatorio del paquete:
 | 6 | `6-matriz-trazabilidad-telemetry-at.md` | AT-6-TRA | Trazabilidad Core -> Design -> Evidencia |
 | 7 | `7-nfr-seguridad-operacion-telemetry-at.md` | AT-7-NFR | NFR, seguridad y operación de telemetría |
 | 8 | `8-plan-validacion-diseno-telemetry-at.md` | AT-8-VAL | Plan de validación de diseño y evidencia |
-| 10 | `10-product-visible-admin-at.md` | AT-10-PV | Producto visible operador + CRUD admin |
-| 11 | `11-roles-permisos-capas-at.md` | AT-11-RBAC | Roles, permisos y capas de interfaz |
 
 ---
 

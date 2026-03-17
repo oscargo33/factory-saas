@@ -1,8 +1,5 @@
 # Modelos de Datos — App Payments
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** PY-2-MDL
 
 Propósito: definir los artefactos financieros: `PaymentIntent`, `Invoice`, `Subscription` y mecanismos de reconciliación.

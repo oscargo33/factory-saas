@@ -1,8 +1,5 @@
 # Operación y Fallbacks — Campañas y Envíos
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** MA-5-OPS
 
 Propósito: definir comportamientos cuando componentes externos no están disponibles y runbooks operativos para campañas.

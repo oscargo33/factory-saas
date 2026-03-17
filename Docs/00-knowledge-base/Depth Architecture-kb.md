@@ -1,6 +1,3 @@
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 Este es el Documento Maestro de Jerarquía y Profundidad Arquitectónica. Define el orden de precedencia y la estructura de dependencias de la Factory SaaS, organizada desde el cimiento transversal (Capa 1) hasta la superficie de consumo (Capa 9).
 
 Documento Maestro: Jerarquía de Profundidad (Estructura SaaS)

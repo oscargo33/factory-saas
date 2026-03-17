@@ -1,8 +1,5 @@
 # Documento: Service, Selector y Contratos - App Product Orchestrator
 
-**Versión del documento:** 1.0.0
-**Última actualización:** 2026-03-16
-
 **ID:** PO-3-SVC
 **Ubicacion:** `./Docs/2-Design-Concept/4-Product-Orchestrator-App/3-service-selector-contratos-product-orchestrator-po.md`
 **Anchor Docs:** `Docs/1-Core_Concept/4-product-orchestrator-app-cc.md`, `Docs/2-Design-Concept/0-Factory-Saas/16-contratos-inter-app-fs.md`, `Docs/2-Design-Concept/0-Factory-Saas/12-patron-service-layer-fs.md`

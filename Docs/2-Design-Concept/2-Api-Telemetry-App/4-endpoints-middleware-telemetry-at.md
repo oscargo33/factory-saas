@@ -1,5 +1,8 @@
 # Documento: Endpoints y Middleware - App Api Telemetry
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 **ID:** AT-4-API
 **Ubicacion:** `./Docs/2-Design-Concept/2-Api-Telemetry-App/4-endpoints-middleware-telemetry-at.md`
 **Anchor Docs:** `Docs/1-Core_Concept/2-api-app-cc.md`, `Docs/2-Design-Concept/0-Factory-Saas/15-protocolo-comunicacion-central-fs.md`

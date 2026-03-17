@@ -1,5 +1,8 @@
 # Runbook — Support App (operaciones)
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 1. Incident Triage
  - On alert `support.tickets.critical` route to on-call via PagerDuty.
  - Enrich ticket with `order_id` / `payment_intent_id` if present.

@@ -1,5 +1,8 @@
 # Service/Selector — Contratos Públicos (Orders)
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 **ID:** OD-3-CONTRATOS
 
 Archivo: `apps/orders/selectors.py`, `apps/orders/services.py`

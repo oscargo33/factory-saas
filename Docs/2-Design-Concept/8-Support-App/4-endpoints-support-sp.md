@@ -1,5 +1,8 @@
 # Endpoints — App Support
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 **ID:** SP-4-EP
 
 API interna (service-to-service):

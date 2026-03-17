@@ -1,5 +1,8 @@
 # Documento: NFR, Seguridad y Operacion - App Product Orchestrator
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 **ID:** PO-7-NFR
 **Ubicacion:** `./Docs/2-Design-Concept/4-Product-Orchestrator-App/7-nfr-seguridad-operacion-product-orchestrator-po.md`
 **Anchor Docs:** `Docs/2-Design-Concept/0-Factory-Saas/18-matriz-seguridad-compliance-fs.md`, `Docs/2-Design-Concept/0-Factory-Saas/11-configuracion-redis-celery-fs.md`

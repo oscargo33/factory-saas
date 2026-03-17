@@ -1,5 +1,8 @@
 # NFR, Seguridad y Operación — Marketing
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 **ID:** MA-7-NFR
 
 No funcionales y controles operativos mínimos:

@@ -6,6 +6,9 @@ Vamos a reconstruir el **DC-6-FS** con un enfoque de **Ingeniería de Producció
 
 # Documento: 6-dockerfile-maestro-fs.md (Versión Detallada)
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 **ID:** DC-6-FS
 
 **Ubicación:** `./Docs/2-Design-Concept/0-Factory-Saas/6-dockerfile-maestro-fs.md`
@@ -87,4 +90,3 @@ Para optimizar el tiempo de construcción (Build Time):
 * [x] **docker-compose.yml (Diseño Profundo)** (DC-7).
 * [ ] `.env.example` físico.
 * [ ] `entrypoint.sh` (Siguiente paso: Es el script que une el Dockerfile con la App).
-

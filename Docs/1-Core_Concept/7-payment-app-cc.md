@@ -4,6 +4,9 @@ Este es el **Documento Maestro 7: App Payment (Gestión Financiera)**. En la jer
 
 # Documento Maestro 7: App Payment (Gestión Financiera)
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 ## 1. Identidad de la Aplicación
 
 * **Nivel de Profundidad:** 7 (Capa de Conversión).

@@ -1,5 +1,8 @@
 # Support App — Design Package (0..8)
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 **ID:** SP-0-INDEX
 
 Resumen: paquete de diseño para Support app siguiendo el patrón 0..8. Contiene modelos, contratos, endpoints, operaciones, trazabilidad, NFR y validación.

@@ -1,5 +1,8 @@
 # Documento: Estructura de Repositorio y Carpetas Raíz - fs
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 **ID:** DC-5-FS
 
 **Ubicación:** `./docs/1-Design-Concept/0-Factory-SaaS/estructura-de-carpetas-fs.md`
@@ -64,4 +67,3 @@ src/apps/06_orders/
 ## 5. Validación de Anclaje
 
 Queda prohibido crear carpetas en la raíz que no estén definidas en este documento sin una actualización previa de la especificación de diseño.
-

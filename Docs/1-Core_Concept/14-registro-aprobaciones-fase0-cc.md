@@ -1,5 +1,8 @@
 # Documento Maestro 14: Registro de Aprobaciones de Fase 0
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 ## 1. Proposito
 Trazar aprobaciones formales de los documentos de concepcion.
 

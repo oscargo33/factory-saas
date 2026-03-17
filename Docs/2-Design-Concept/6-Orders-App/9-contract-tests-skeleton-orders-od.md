@@ -1,5 +1,8 @@
 # Orders — Contract Tests Skeleton
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 Propósito: casos mínimos para validar `freeze_cart`, `mark_as_paid`, PriceSnapshot y Outbox flows.
 
 Archivos referenciados (fixtures):
@@ -23,3 +26,8 @@ Casos sugeridos:
    - Insert `outbox_event_example.json` with `status=pending` → run worker → expect `sent` and telemetry emitted.
 
 Notas: traducir a pytest fixtures que inyecten DB records and mock external adapters (payments, orchestrator).
+
+Acceptance criteria reproducibles:
+- [ ] Cada caso define input fixture y output esperado verificable.
+- [ ] Cada flujo valida correlacion por `tenant_id` + `operation_id`.
+- [ ] Los casos de `price_snapshot` y outbox validan consistencia e idempotencia.

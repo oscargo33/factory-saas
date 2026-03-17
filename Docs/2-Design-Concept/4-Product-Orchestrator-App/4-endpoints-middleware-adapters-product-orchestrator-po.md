@@ -1,5 +1,8 @@
 # Documento: Endpoints, Middleware y Adapters - App Product Orchestrator
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 **ID:** PO-4-API
 **Ubicacion:** `./Docs/2-Design-Concept/4-Product-Orchestrator-App/4-endpoints-middleware-adapters-product-orchestrator-po.md`
 **Anchor Docs:** `Docs/1-Core_Concept/4-product-orchestrator-app-cc.md`, `Docs/2-Design-Concept/0-Factory-Saas/13-router-dinamico-esquemas-fs.md`

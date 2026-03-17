@@ -1,5 +1,8 @@
 # Contratos — App Support
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 **ID:** SP-3-CT
 
 Objetivo: definir los contratos y DTOs que Support expone y consume.

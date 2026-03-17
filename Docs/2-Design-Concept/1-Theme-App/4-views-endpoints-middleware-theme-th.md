@@ -1,5 +1,8 @@
 # Documento: Middleware, Views y Endpoints — App Theme
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 **ID:** TH-4-API
 **Ubicación:** `./Docs/2-Design-Concept/1-Theme-App/4-views-endpoints-middleware-theme-th.md`
 **Anchor Doc:** `Docs/1-Core_Concept/1-theme-app-cc.md`

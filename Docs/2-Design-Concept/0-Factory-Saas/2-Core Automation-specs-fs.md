@@ -1,6 +1,9 @@
 
 # Documento: Especificación del Motor de Automatización - fs
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 **ID:** DC-3-FS
 
 **Ubicación:** `./docs/1-Design-Concept/0-Factory-SaaS/2-core-automation-specs-fs.md`
@@ -23,6 +26,8 @@ El archivo `Makefile` en la raíz del proyecto es el único punto de entrada per
 * `make up` / `make down`: Control de estado de los servicios.
 * `make shell`: Acceso directo al terminal del contenedor de la aplicación.
 * `make test`: Ejecución de la suite de pruebas unitarias y de integración.
+* `make docs-sync`: Regeneración del versionado documental y del registro maestro de `Docs/`.
+* `make docs-check`: Validación no destructiva del gobierno documental; falla si el sincronizador deja cambios pendientes.
 
 ## 3. Implementación del Cerebro Operativo (Django Commands)
 
@@ -47,4 +52,3 @@ tenant-create:
 	docker-compose exec app python manage.py fs_provision_tenant $(name)
 
 ```
-

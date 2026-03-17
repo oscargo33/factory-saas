@@ -1,5 +1,8 @@
 # Checklist de Diseno - App 4 Product Orchestrator
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 **ID:** PO-1-CK
 **Ubicacion:** `./Docs/2-Design-Concept/4-Product-Orchestrator-App/1-checklist-product-orchestrator-app.md`
 **Anchor Doc:** `Docs/1-Core_Concept/4-product-orchestrator-app-cc.md`

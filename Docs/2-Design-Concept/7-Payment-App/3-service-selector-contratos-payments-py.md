@@ -1,5 +1,8 @@
 # Service/Selector — Contratos Públicos (Payments)
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 **ID:** PY-3-CONTRATOS
 
 Archivo: `apps/payments/services.py`, `apps/payments/selectors.py`

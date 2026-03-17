@@ -1,0 +1,19 @@
+{
+  "tenant_id": "tenant-uuid-demo",
+  "widgets": [
+    {
+      "widget_key": "orders_summary",
+      "title": "Orders Summary",
+      "settings": {"showTrend": true}
+    },
+    {
+      "widget_key": "payments_status",
+      "title": "Payments Status",
+      "settings": {"showLast30d": true}
+    }
+  ],
+  "metadata": {
+    "operation_id": "op-home-widgets-001",
+    "home_api_version": "v1"
+  }
+}

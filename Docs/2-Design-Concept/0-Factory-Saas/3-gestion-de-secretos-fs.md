@@ -1,5 +1,8 @@
 # Documento: Gestión de Secretos y Configuración - fs
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 **ID:** DC-4-FS
 
 **Ubicación:** `./docs/1-Design-Concept/0-Factory-SaaS/gestion-de-secretos-fs.md`
@@ -42,4 +45,3 @@ La Factory SaaS no debe iniciar su ejecución si existen inconsistencias en la c
 
 1. Escanee las variables requeridas definidas en un esquema de validación al arrancar Django.
 2. Lanze una excepción de sistema (`ImproperlyConfigured`) con un mensaje claro si una variable esencial es nula o tiene un formato incorrecto.
-

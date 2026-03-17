@@ -7,7 +7,7 @@ Setup (recommended in virtualenv):
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-pip install -r requirements-dev.txt
+python -m pip install pytest
 pytest -q tests/contracts
 ```
 

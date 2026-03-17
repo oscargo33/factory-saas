@@ -1,5 +1,8 @@
 # Documento: Push/Pull y Resiliencia - App Api Telemetry
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 **ID:** AT-5-OPS
 **Ubicacion:** `./Docs/2-Design-Concept/2-Api-Telemetry-App/5-push-pull-resiliencia-telemetry-at.md`
 **Anchor Docs:** `Docs/1-Core_Concept/2-api-app-cc.md`, `Docs/2-Design-Concept/0-Factory-Saas/11-configuracion-redis-celery-fs.md`, `Docs/2-Design-Concept/0-Factory-Saas/15-protocolo-comunicacion-central-fs.md`
@@ -131,4 +134,3 @@ Operaciones de emergencia:
 
 Integracion con alertas y runbook:
 - On `outbox_poison_count > 0`: abrir ticket automatico en `support` con evidencia y payload (sanitize PII).
-

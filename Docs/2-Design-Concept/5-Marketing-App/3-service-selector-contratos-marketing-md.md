@@ -1,5 +1,8 @@
 # Service/Selector — Contratos Públicos (Marketing)
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 **ID:** MA-3-CONTRATOS
 
 Archivo: `apps/marketing/selectors.py`, `apps/marketing/services.py`

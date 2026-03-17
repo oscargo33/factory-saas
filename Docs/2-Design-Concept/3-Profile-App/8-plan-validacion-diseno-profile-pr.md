@@ -1,5 +1,8 @@
 # Documento: Plan de Validacion de Diseno - App Profile
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 **ID:** PR-8-VAL
 **Ubicacion:** `./Docs/2-Design-Concept/3-Profile-App/8-plan-validacion-diseno-profile-pr.md`
 **Anchor Docs:** `Docs/2-Design-Concept/3-Profile-App/1-checklist-profile-app.md`, `Docs/2-Design-Concept/3-Profile-App/6-matriz-trazabilidad-profile-pr.md`

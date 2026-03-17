@@ -1,5 +1,8 @@
 # Documento: Modelos de Datos - App Profile
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 **ID:** PR-2-MDL
 **Ubicacion:** `./Docs/2-Design-Concept/3-Profile-App/2-modelos-profile-pr.md`
 **Anchor Docs:** `Docs/1-Core_Concept/3-profile-app-cc.md`, `Docs/2-Design-Concept/0-Factory-Saas/13-router-dinamico-esquemas-fs.md`, `Docs/2-Design-Concept/0-Factory-Saas/17-diccionario-datos-logico-fs.md`

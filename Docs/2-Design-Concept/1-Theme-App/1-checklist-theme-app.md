@@ -1,5 +1,8 @@
 # Checklist de Diseño — App 1 Theme
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 **ID:** TH-1-CK
 **Ubicación:** `./Docs/2-Design-Concept/1-Theme-App/1-checklist-theme-app.md`
 **Anchor Doc:** `Docs/1-Core_Concept/1-theme-app-cc.md`

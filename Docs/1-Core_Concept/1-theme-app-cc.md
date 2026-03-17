@@ -1,5 +1,8 @@
 # Documento Maestro 1: App Theme (Motor de Diseño e i18n)
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 ## 1. Identidad de la Aplicación
 
 * **Nivel de Profundidad:** 1 (Base absoluta).
@@ -154,4 +157,3 @@ Cobertura obligatoria de degradación:
 |---|---|---|
 | R-01 | Otras apps importan modelos de Theme directamente | Toda referencia a Theme via `apps.is_installed('theme')` |
 | R-02 | Apps consumidoras o Product Core sin `fallback_layout.html` propio | Cada consumidor debe definir su fallback; es parte de su DoD |
-

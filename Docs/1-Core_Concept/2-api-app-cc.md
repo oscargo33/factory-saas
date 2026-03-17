@@ -4,6 +4,9 @@ Este es el **Documento Maestro 2: App Api / Telemetry (El Sensor de La Central)*
 
 # Documento Maestro 2: App Api / Telemetry (Enlace y Observabilidad)
 
+**Versión del documento:** 1.0.0
+**Última actualización:** 2026-03-16
+
 ## 1. Identidad de la Aplicación
 
 * **Nivel de Profundidad:** 2 (Capa de Consciencia).
@@ -111,4 +114,3 @@ La App Telemetry debe poder activarse y desactivarse sin afectar el despliegue. 
 |---|---|---|
 | R-02 | La Central no disponible → pérdida de métricas | `PendingMetrics` + Celery retry con exponential backoff |
 | R-04 | Inconsistencia de eventos entre apps | `X-Trace-ID` propagado en cada request via `TelemetryMiddleware` |
-

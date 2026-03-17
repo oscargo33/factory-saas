@@ -1,10 +1,14 @@
 # Indice de Diseno App 3 - Profile
 
+**Versión del documento:** 1.0
+**Última actualización:** 2026-03-16
+
+**Estado documental:** Inicio de diseno individual
+
 **ID:** PR-0-INDEX
 **Ubicacion:** `./Docs/2-Design-Concept/3-Profile-App/0-index.md`
 **Anchor Docs:** `Docs/1-Core_Concept/3-profile-app-cc.md`, `Docs/1-Core_Concept/0-factory_saas-cc.md`
 **Dependencia Global:** `Docs/2-Design-Concept/0-Factory-Saas/*`
-**Estado:** v1.0 - Inicio de diseno individual
 
 ---
 
@@ -34,6 +38,8 @@ Alcance obligatorio del paquete:
 | 6 | `6-matriz-trazabilidad-profile-pr.md` | PR-6-TRA | Trazabilidad Core -> Design -> Evidencia |
 | 7 | `7-nfr-seguridad-operacion-profile-pr.md` | PR-7-NFR | NFR, seguridad y operacion |
 | 8 | `8-plan-validacion-diseno-profile-pr.md` | PR-8-VAL | Plan de validacion del diseno |
+| 10 | `10-product-visible-admin-profile-pr.md` | PR-10-PV | Producto visible + CRUD admin por modelo |
+| 11 | `11-roles-permisos-capas-profile-pr.md` | PR-11-RBAC | Roles, permisos y capas de interfaz |
 
 ---
 
